@@ -39,9 +39,14 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
+  # TODO: Move this permanently in home-manager
+  services.xserver = {
+    xkb = {
+      layout = "us";
+      variant = "colemak";
+    };
+    displayManager.startx.enable = true;
+    enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -56,7 +61,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

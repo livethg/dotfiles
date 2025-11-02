@@ -1,0 +1,6 @@
+# Result of derivation build
+result
+
+# Pictures and unwanted temps
+*.tmp
+pictures/
