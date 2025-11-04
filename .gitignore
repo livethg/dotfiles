@@ -4,3 +4,6 @@ result
 # Pictures and unwanted temps
 *.tmp
 pictures/
+
+# Lock file
+*.lock
