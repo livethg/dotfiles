@@ -1,0 +1,46 @@
+# Core imports for the system
+{
+  pkgs,
+  ...
+}:
+
+{
+  environment.systemPackages = with pkgs; [
+    bat
+    btop
+    cmake
+    cron
+    docker
+    eza
+    file
+    fzf
+    gawk
+    gettext
+    glow
+    gnumake
+    gnupg
+    gnutar
+    gh
+    git
+    iotop
+    jq
+    libgcc
+    lsof
+    p7zip
+    pciutils
+    pre-commit
+    python313Packages.xmljson
+    ripgrep
+    rocmPackages.llvm.bintools
+    tree
+    unzip
+    usbutils
+    wayland-utils
+    which
+    wl-clipboard
+    xz
+    yq-go
+    zip
+    zsh
+  ];
+}

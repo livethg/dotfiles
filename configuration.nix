@@ -1,87 +1,106 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+# Nixos configuration, includes basic properties
+# such as networking services and global packages.
+#
+# For specific (and longer) system-wide configuration,
+# use a new file in the ./system directory.
+{
+  hyprland,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  # Configurations for specific categories
+  imports = [
+    # Do not remove, for hardware configuration
+    ./hardware-configuration.nix
 
+    # Includes system wide configs
+    ./system
+  ] ++ (
+    if systemd.services.lidm.enable ? false
+    then [ ./system/dism/lidm.nix ]
+    else []
+  );
+
+  # Enables zsa keyboards
+  hardware.keyboard.zsa.enable = true;
+
+  # Experimental features should be active at all times
   nix.settings.experimental-features = [
     "flakes"
     "nix-command"
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Display manager
+  services.displayManager.enable = true;
+  systemd.services.lidm.enable = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Hostname
+  networking.hostName = "nixos";
 
-  # Enable networking
+  # Removes localhost proxies
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Activates the nmcli command line
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # For universal time
   time.timeZone = "America/Toronto";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Configure keymap in X11
-  # TODO: Move this permanently in home-manager
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "colemak";
-    };
-    displayManager.startx.enable = true;
+  # Flatpak activated for
+  services.flatpak.enable = true;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enables docker
+  virtualisation.docker = {
     enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.admin = {
-    isNormalUser = true;
-    description = "admin";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+  # Enable sound with pipewire
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-  ];
+  # Garbage collector for saving memory
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+  nix.settings.auto-optimise-store = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  # Default xserver input
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+  };
 
-  # List services that you want to enable:
+  # Will enable hyprland, but the window manager
+  # should be configured by the user.
+  programs.hyprland = {
+    enable = true;
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
+  programs.hyprlock.enable = true;
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -89,6 +108,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05";
 
 }

@@ -1,15 +1,64 @@
+# Flakes configuration. Specifies the input urls and
+# external packages.
+#
+# This should not make any changes to configuration files,
+# only import them.
 {
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+
+    flake-utils.url = "github:numtide/flake-utils";
+    hyprland.url    = "github:hyprwm/Hyprland";
+    nix-flatpak.url = "https://flakehub.com/f/gmodena/nix-flatpak/0.6.0";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    home-manager,
+    hyprland,
+    nix-flatpak,
+    ...
+  }:
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+  {
+    nixosConfigurations = {
+      admin = nixpkgs.lib.nixosSystem rec {
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          nix-flatpak.nixosModules.nix-flatpak
+          {
+            home-manager = {
+              useGlobalPkgs   = true;
+              useUserPackages = true;
 
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+              sharedModules = [
+                 nix-flatpak.homeManagerModules.nix-flatpak
+              ];
 
+              users = {
+                admin.imports = [ ./home/admin ];
+              };
+
+              extraSpecialArgs = specialArgs;
+            };
+          }
+        ];
+
+        specialArgs = {
+           inherit flake-utils home-manager hyprland nix-flatpak;
+           inputs = self;
+        };
+      };
+    };
   };
 }
