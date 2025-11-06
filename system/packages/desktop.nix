@@ -7,11 +7,14 @@
 {
   environment.systemPackages = with pkgs; [
     firefox
-    hyprlock
+    kdePackages.dolphin
     kdePackages.elisa
+    kdePackages.kate
     kdePackages.ktorrent
     kile
     libreoffice-qt-fresh
     qalculate-qt
+    texliveFull
+    xournalpp
   ];
 }

@@ -5,6 +5,7 @@
 
 {
   imports = [
+    ./bind.nix
     ./bindl.nix
     ./bindel.nix
   ];

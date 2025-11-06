@@ -6,6 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    acpi
     bat
     brightnessctl
     btop
@@ -13,6 +14,7 @@
     cron
     docker
     eza
+    fastfetch
     file
     fzf
     gawk
@@ -34,10 +36,12 @@
     python313Packages.xmljson
     ripgrep
     rocmPackages.llvm.bintools
+    tmux
     tree
     unzip
     usbutils
     wayland-utils
+    wev
     which
     wl-clipboard
     xz
