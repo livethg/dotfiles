@@ -15,15 +15,8 @@ rec {
   imports = [
     ./packages
   ] ++ (
-    lib.lists.optional wayland.windowManager.hyprland.enable ./hyprland.nix  
+    lib.lists.optional wayland.windowManager.hyprland.enable ./hyprland
   );
-
-  # Sets up the keyboard
-  home.keyboard = {
-    layout  = "us,us,csa";
-    variant = "colemak,,";
-    options = "grp:win_space_toggle";
-  };
 
   # Lets home-manager manage itself
   programs.home-manager.enable = true;

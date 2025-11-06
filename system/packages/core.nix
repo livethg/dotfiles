@@ -7,6 +7,7 @@
 {
   environment.systemPackages = with pkgs; [
     bat
+    brightnessctl
     btop
     cmake
     cron
@@ -28,6 +29,7 @@
     lsof
     p7zip
     pciutils
+    playerctl
     pre-commit
     python313Packages.xmljson
     ripgrep
