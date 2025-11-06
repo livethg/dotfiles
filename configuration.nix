@@ -5,11 +5,12 @@
 # use a new file in the ./system directory.
 {
   hyprland,
+  lib,
   pkgs,
   ...
 }:
 
-{
+rec {
   # Configurations for specific categories
   imports = [
     # Do not remove, for hardware configuration
@@ -18,9 +19,9 @@
     # Includes system wide configs
     ./system
   ] ++ (
-    if systemd.services.lidm.enable ? false
-    then [ ./system/dism/lidm.nix ]
-    else []
+    lib.lists.optional systemd.services.lidm.enable ./system/dism/lidm.nix 
+  ) ++ (
+    lib.lists.optional services.displayManager.sddm.enable ./system/dism/sddm.nix
   );
 
   # Enables zsa keyboards
@@ -37,7 +38,11 @@
 
   # Display manager
   services.displayManager.enable = true;
-  systemd.services.lidm.enable = true;
+
+  # Turn on for tty login
+  systemd.services.lidm.enable = false;
+  services.xserver.displayManager.lightdm.enable = false;
+  services.displayManager.sddm.enable = true;
 
   # Hostname
   networking.hostName = "nixos";

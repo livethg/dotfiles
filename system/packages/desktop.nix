@@ -6,6 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    firefox
     hyprlock
     kdePackages.elisa
     kdePackages.ktorrent
