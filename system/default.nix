@@ -9,6 +9,9 @@
     # List of import packages
     ./packages
 
+    # Default general configs
+    ./progs
+
     # Fonts and bootloader configs
     ./bootloader.nix
     ./fonts.nix
