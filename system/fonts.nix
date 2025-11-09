@@ -17,7 +17,7 @@
     nerd-fonts.mononoki
     nerd-fonts.ubuntu
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans
     roboto
   ];
