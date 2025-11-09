@@ -38,6 +38,7 @@
     rocmPackages.llvm.bintools
     tmux
     tree
+    udiskie
     unzip
     usbutils
     wayland-utils
@@ -47,6 +48,7 @@
     xz
     yq-go
     zip
+    zoxide
     zsh
   ];
 }
