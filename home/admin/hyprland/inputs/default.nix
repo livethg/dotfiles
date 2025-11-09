@@ -7,12 +7,13 @@
   wayland.windowManager.hyprland = {
     settings.input = {
       # Keyboard relative
-      kb_layout = "us";
-      kb_variant = "colemak";
+      kb_layout  = "us,us,ca";
+      kb_variant = "colemak,,";
+      kb_options = "grp:win_space_toggle";
 
       numlock_by_default = true;
 
-      repeat_rate = 40;
+      repeat_rate  = 40;
       repeat_delay = 250;
 
       # Mouse relative
