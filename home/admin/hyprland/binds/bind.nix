@@ -69,17 +69,11 @@
         "$mod, mouse_up,   workspace, e+1"
         "$mod, mouse_down, workspace, e-1"
 
-        "$mod,     TAB, cyclenext"
-        "$modOpt1, TAB, cyclenext, prev"
-        
         # Groups
         "$mod, U, submap, groups"
 
         "$modOpt1, T, togglegroup"
         "$modOpt1, L, lockactivegroup, toggle"
-
-        "Alt_L,         TAB, changegroupactive, f"
-        "Alt_L+Shift_L, TAB, changegroupactive, b"
 
         # System
         "$mod, L, exec, $lock"

@@ -9,6 +9,7 @@
     ./binds
     ./inputs
     ./packages
+    ./submaps
   ];
 
   wayland.windowManager.hyprland = {
