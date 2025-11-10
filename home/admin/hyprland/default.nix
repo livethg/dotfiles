@@ -7,8 +7,11 @@
 {
   imports = [
     ./binds
+    ./exec
+    ./gestures
     ./inputs
     ./packages
+    ./rules
     ./submaps
   ];
 
@@ -32,19 +35,32 @@
         "$fmty"   = "superfile";
         "$fmgui"  = "dolphin";
         "$picker" = "hyprpicker -a";
-        "$scrsh"  = "flameshot gui -d 0 -c";
-        "$scrshL" = "flameshot gui -c";
-        "$status" = "btop";
+        "$status" = "$term btop";
         "$term"   = "kitty";
+
+        # Screenshot variables
+        "$imgpth"  = "~/Pictures/Screenshots";
+        "$mkscrpt" = "if [ ! -d $imgpth ]; then mkdir -p $imgpth; fi;";
+
+        "$scrsh"   = "flameshot gui -d 0 -c";
+        "$scrshS"  = "$mkscrpt flameshot gui -d 0 -c -p $imgpth";
+        "$scrshF"  = "flameshot full -c";
+        "$scrshFS" = "$mkscrpt flameshot full -c -p $imgpth";
 
         # Control sequence
         "$start"    = "Control_L+Alt_L";
         "$startOpt" = "$start+Shift_L";
         "$mod"      = "Super_L";
-        "$modOpt1"  = "$mod+Shift_L";
-        "$modOpt2"  = "$mod+Control_L";
-        "$modOpt3"  = "$mod+Alt_L";
-        "$modOpt4"  = "$mod+Control_L+Shift_L";
+
+        "$opt1" = "Shift_L";
+        "$opt2" = "Control_L";
+        "$opt3" = "Alt_L";
+        "$opt4" = "$opt1+$opt2";
+
+        "$modOpt1" = "$mod+$opt1";
+        "$modOpt2" = "$mod+$opt2";
+        "$modOpt3" = "$mod+$opt3";
+        "$modOpt4" = "$mod+$opt4";
 
         # System settings
         # TODO: Change this for hyprlock once

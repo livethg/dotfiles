@@ -14,6 +14,7 @@ rec {
   # Imports for additional configuration
   imports = [
     ./packages
+    ./progs
   ] ++ (
     lib.lists.optional wayland.windowManager.hyprland.enable ./hyprland
   );

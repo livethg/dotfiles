@@ -12,15 +12,15 @@
         "$mod, space, exec, walker"
 
         # Starts apps
-        "$start,    Z,     exec, $browser"
-        "$start,    T,     exec, $term"
-        "$start,    slash, exec, $term $fmty"
-        "$startOpt, slash, exec, $fmgui"
-        "$start,    C,     exec, $code"
-        "$start,    B,     exec, $status"
-        "$start,    P,     exec, $picker"
-        "$start,    S,     exec, $scrsh"
-        "$start,    R,     exec, $scrshL"
+        "$start,    Z,     exec,   $browser"
+        "$start,    T,     exec,   $term"
+        "$start,    slash, exec,   $term $fmty"
+        "$startOpt, slash, exec,   $fmgui"
+        "$start,    C,     exec,   $code"
+        "$start,    B,     exec,   $status"
+        "$start,    P,     exec,   $picker"
+        "$start,    S,     exec,   $scrsh"
+        "$start,    F,     submap, screenshots"
 
         # Window control sequence
         "$mod,     Q, killactive"
@@ -92,12 +92,8 @@
           builtins.genList (
             x: let y = builtins.toString x; in "$modOpt2, ${y}, movetoworkspace, ${y}"
           ) 10
-        ) ++ [ "$modOpt2, 0, movetoworkspace, 10" ]
+        ) ++ [ "$modOpt2, 0, movetoworkspacesilent, 10" ]
       );
-
-      binds = {
-        drag_threshold = 10;
-      };
     };
   };
 }

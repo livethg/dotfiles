@@ -11,7 +11,6 @@
     dunst
     eww
     exiftool
-    flameshot
     hyprcursor
     hyperfine
     hyprland

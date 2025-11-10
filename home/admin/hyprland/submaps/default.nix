@@ -5,6 +5,7 @@
 
 {
   imports = [
-    ./groups.nix
+    ./groups
+    ./screenshots
   ];
 }

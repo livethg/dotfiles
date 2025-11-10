@@ -6,6 +6,7 @@
 
 {
   home.packages = with pkgs; [
+    flameshot
     kdePackages.ghostwriter
     ghc
     home-manager
