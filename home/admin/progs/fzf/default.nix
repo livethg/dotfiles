@@ -1,0 +1,8 @@
+# Options for fuzzy finder
+{
+  ...
+}:
+
+{
+
+}

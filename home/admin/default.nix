@@ -2,11 +2,6 @@
 # It uses home-manager.
 {
   lib,
-  inputs,
-  pkgs,
-  flakehub,
-  home-manager,
-  nix-flatpak,
   ...
 }:
 
@@ -24,27 +19,6 @@ rec {
 
   # Select window manager
   wayland.windowManager.hyprland.enable = true;
-
-  # Sets neovim as the default editor
-  programs.neovim = {
-    enable        = true;
-    defaultEditor = true;
-    viAlias       = true;
-    vimAlias      = true;
-  };
-
-  programs.kitty.enable = true;
-
-  # Used for github
-  services.gpg-agent = {
-    enable           = true;
-    enableSshSupport = true;
-  };
-
-  # Flatpak packages
-  services.flatpak.packages = [
-    "app.zen_browser.zen"
-  ];
 
   # Credentials
   home.username = "admin";

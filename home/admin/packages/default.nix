@@ -5,11 +5,20 @@
 }:
 
 {
+  # Flatpak packages
+  services.flatpak.packages = [
+    "app.zen_browser.zen"
+  ];
+
+  # Nix packages
   home.packages = with pkgs; [
     flameshot
     kdePackages.ghostwriter
     ghc
+    (graphite-gtk-theme.override (import ../sets/graphite-gtk-theme.nix))
     home-manager
+    hyprshot
+    nwg-look
     oh-my-zsh
     thunderbird
     viu
