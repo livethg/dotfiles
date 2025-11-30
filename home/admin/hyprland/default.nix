@@ -9,6 +9,7 @@
 rec {
   imports = [
     ./binds
+    ./env
     ./exec
     ./gestures
     ./inputs
@@ -21,8 +22,10 @@ rec {
   programs.hyprshot.enable  = (pkgs.callPackage ../progs/hyprshot/default.nix {}).programs.hyprshot.enable;
 
   wayland.windowManager.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
+    enable        = true;
+    package       = null;
+    portalPackage = null;
+
     xwayland.enable = true;
 
     # Put your variables here.
