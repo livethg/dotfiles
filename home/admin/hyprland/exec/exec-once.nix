@@ -7,10 +7,10 @@
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
+        # Utils
         "clipse -listen"
-        # TODO: Uncomment this when hypridle is configured
-        # "hypridle"
-        # TODO: Uncomment this when waybar is setup
+        "udiskie"
+        "hypridle"
         # "waybar"
 
         "hyprctl setcursor 'graphite-dark' 14"

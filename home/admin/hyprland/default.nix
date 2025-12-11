@@ -12,6 +12,9 @@ rec {
     ./env
     ./exec
     ./gestures
+    ./hyprlock
+    ./hyprpaper
+    ./hypridle
     ./inputs
     ./packages
     ./rules
@@ -66,9 +69,8 @@ rec {
       "$modOpt4" = "$mod+$opt4";
 
       # System settings
-      # TODO: Change this for hyprlock once
-      # the lock screen is enabled.
-      "$lock"      = "echo 'locking...'"; # "hyprlock";
+      "$lockProg"  = "hyprlock";
+      "$lock"      = "$lockProg";
       "$reboot"    = "systemctl reboot";
       "$poweroff"  = "systemctl poweroff";
       "$hibernate" = "systemctl hibernate";

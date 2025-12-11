@@ -102,7 +102,6 @@ rec {
     package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-  programs.hyprlock.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

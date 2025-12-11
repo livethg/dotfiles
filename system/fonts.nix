@@ -6,6 +6,8 @@
 
 {
   fonts.packages = with pkgs; [
+    cantarell-fonts
+    fira
     fira-code
     fira-code-symbols
     ibm-plex

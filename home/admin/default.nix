@@ -27,8 +27,11 @@ rec {
   home.homeDirectory = "/home/admin";
 
   # File to override because of home-manager
-  xdg.configFile."gtk-4.0/gtk.css".force      = true;
-  xdg.configFile."gtk-4.0/settings.ini".force = true;
+  xdg.configFile."gtk-4.0/gtk.css".force                = true;
+  xdg.configFile."gtk-4.0/settings.ini".force           = true;
+
+  home.file.".config/systemd/user/hyprpaper.service".enable = false;
+  home.file.".config/systemd/user/hyprpaper.service".force  = true;
 
   # Should be in sync with configuration.nix
   home.stateVersion = "25.05";

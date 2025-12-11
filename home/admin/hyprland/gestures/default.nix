@@ -20,9 +20,8 @@
         "3, left,  mod: $mod, dispatcher, movetoworkspacesilent, e-1"
 
         # Toggling options
-        # TODO: Change this once hyprlock is active
-        "3, down, dispatcher, exec, echo 'Locking...'"
-        "3, up, fullscreen, maximize"
+        "3, down, dispatcher, exec, $lock"
+        "3, up,   fullscreen, maximize"
       ];
     };
   };

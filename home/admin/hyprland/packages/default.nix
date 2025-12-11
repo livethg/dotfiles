@@ -16,6 +16,7 @@
     hyprland
     hyprlock
     hypridle
+    hyprpaper
     hyprpicker
     hyprpolkitagent
     hyprland-qtutils

@@ -15,7 +15,8 @@
     flameshot
     kdePackages.ghostwriter
     ghc
-    (graphite-gtk-theme.override (import ../sets/graphite-gtk-theme.nix))
+    gimp
+    graphite-gtk-theme
     home-manager
     hyprshot
     nwg-look
