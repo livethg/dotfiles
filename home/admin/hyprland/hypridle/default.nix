@@ -16,7 +16,7 @@
 
       listener = [
         {
-          timeout    = 570;
+          timeout    = 370;
           on-timeout = "brightness -s set 20%";
           on-resume  = "brightness -r";
         }

@@ -44,7 +44,6 @@ rec {
       # Apps
       "$code"   = "$term nvim ~";
       "$fmty"   = "superfile";
-      "$fmgui"  = "dolphin";
       "$picker" = "hyprpicker -a";
       "$status" = "$term btop";
       "$term"   = "kitty";

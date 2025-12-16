@@ -11,6 +11,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
     hyprland.url    = "github:hyprwm/Hyprland";
+    nix-colors.url  = "github:misterio77/nix-colors";
     nix-flatpak.url = "https://flakehub.com/f/gmodena/nix-flatpak/0.6.0";
 
     home-manager = {
@@ -25,6 +26,7 @@
     flake-utils,
     home-manager,
     hyprland,
+    nix-colors,
     nix-flatpak,
     ...
   }:
@@ -46,7 +48,9 @@
               ];
 
               users = {
-                admin.imports = [ ./home/admin ];
+                admin.imports = [
+                  ./home/admin
+                ];
               };
 
               extraSpecialArgs = specialArgs;
@@ -55,7 +59,7 @@
         ];
 
         specialArgs = {
-           inherit flake-utils home-manager hyprland nix-flatpak;
+           inherit flake-utils home-manager hyprland nix-flatpak nix-colors;
            inputs = self;
         };
       };

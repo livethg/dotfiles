@@ -15,7 +15,6 @@
         "$start,    Z,     exec,   $browser"
         "$start,    T,     exec,   $term"
         "$start,    slash, exec,   $term $fmty"
-        "$startOpt, slash, exec,   $fmgui"
         "$start,    C,     exec,   $code"
         "$start,    B,     exec,   $status"
         "$start,    P,     exec,   $picker"
