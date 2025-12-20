@@ -12,13 +12,15 @@
         "$mod, space, exec, walker"
 
         # Starts apps
-        "$start,    Z,     exec,   $browser"
-        "$start,    T,     exec,   $term"
-        "$start,    slash, exec,   $term $fmty"
-        "$start,    C,     exec,   $code"
-        "$start,    B,     exec,   $status"
-        "$start,    P,     exec,   $picker"
-        "$start,    S,     exec,   $scrsh"
+        "$start,    Z,     exec, $browser"
+        "$start,    T,     exec, $term"
+        "$start,    slash, exec, $term $fmty"
+        "$start,    C,     exec, $code"
+        "$start,    B,     exec, $status"
+        "$start,    P,     exec, $picker"
+        "$start,    S,     exec, $scrsh"
+        "$start,    G,     exec, $img"
+
         "$start,    F,     submap, screenshots"
 
         # Window control sequence

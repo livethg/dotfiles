@@ -13,6 +13,9 @@
         "hypridle"
         # "waybar"
 
+        # Hyprland cursor funnies
+        "hyprctl setcursor 'graphite-dark' 14"
+
         # First workspace
         "[workspace 1 silent] $status"
 

@@ -9,13 +9,17 @@
 rec {
   imports = [
     ./binds
+    ./decoration
     ./env
     ./exec
+    ./general
     ./gestures
+    ./group
     ./hyprlock
     ./hyprpaper
     ./hypridle
     ./inputs
+    ./misc
     ./packages
     ./rules
     ./submaps
@@ -44,6 +48,7 @@ rec {
       # Apps
       "$code"   = "$term nvim ~";
       "$fmty"   = "superfile";
+      "$img"    = "gimp";
       "$picker" = "hyprpicker -a";
       "$status" = "$term btop";
       "$term"   = "kitty";
