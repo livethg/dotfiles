@@ -3,12 +3,15 @@
   ...
 }:
 
+let
+  startClipse = "test -n \\\"$(pgrep 'clipse')\\\" || kitty --class clipse -e 'clipse'";
+in
 {
   wayland.windowManager.hyprland = {
     settings = {
       bind = [
         # Popup windows
-        "$mod, V,     exec, kitty --class clipse -e 'clipse'"
+        "$mod, V,     exec, bash -c \"${startClipse}\""
         "$mod, space, exec, walker"
 
         # Starts apps

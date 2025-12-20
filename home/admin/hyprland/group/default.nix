@@ -19,7 +19,7 @@
           "col.locked_active"   = "0xcc961212";
           "col.locked_inactive" = "0xcc770e0e";
 
-          gaps_out         = 2;
+          gaps_out         = 0;
           height           = 0;
           indicator_height = 0;
           keep_upper_gap   = false;

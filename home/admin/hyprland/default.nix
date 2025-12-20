@@ -8,6 +8,7 @@
 
 rec {
   imports = [
+    ./animation
     ./binds
     ./decoration
     ./env

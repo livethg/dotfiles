@@ -15,9 +15,9 @@ rec {
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
-        # Clipboard
-        "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
+        "animation popin, class:clipse"
+        "float,           class:clipse"
+        "size 622 652,    class:clipse"
 
         # Bug fixes
         "suppressevent maximize, class:.*"
