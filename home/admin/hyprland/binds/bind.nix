@@ -11,8 +11,8 @@ in
     settings = {
       bind = [
         # Popup windows
-        "$mod, V,     exec, bash -c \"${startClipse}\""
-        "$mod, space, exec, walker"
+        "$opt3, V,     exec, bash -c \"${startClipse}\""
+        "$opt3, space, exec, walker"
 
         # Starts apps
         "$start,    Z,     exec, $browser"

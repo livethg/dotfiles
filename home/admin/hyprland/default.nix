@@ -23,6 +23,7 @@ rec {
     ./misc
     ./packages
     ./rules
+    ./scripts
     ./submaps
   ];
 
