@@ -22,6 +22,7 @@ rec {
     ./inputs
     ./misc
     ./packages
+    ./plugins
     ./rules
     ./scripts
     ./submaps

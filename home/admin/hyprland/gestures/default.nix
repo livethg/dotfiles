@@ -12,16 +12,17 @@
       };
 
       gesture = [
+        # Todo: fix this once pull request is merged (hyprexpo)
         # Window switching
         "3, horizontal, workspace"
 
         # Window moving
-        "3, right, mod: $mod, dispatcher, movetoworkspacesilent, e+1"
-        "3, left,  mod: $mod, dispatcher, movetoworkspacesilent, e-1"
+        "3, right, mod: $modOpt1, dispatcher, movetoworkspacesilent, r+1"
+        "3, left,  mod: $modOpt1, dispatcher, movetoworkspacesilent, r-1"
 
         # Toggling options
-        "3, down, dispatcher, exec, $lock"
-        "3, up,   fullscreen, maximize"
+        "4, down, dispatcher, exec, $lock"
+        "4, up,   fullscreen, maximize"
       ];
     };
   };

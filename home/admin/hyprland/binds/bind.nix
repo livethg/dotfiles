@@ -27,6 +27,7 @@ in
         "$start,    F,     submap, screenshots"
 
         # Window control sequence
+        "$mod,     S, hyprexpo:expo, toggle"
         "$mod,     Q, killactive"
         "$modOpt1, Q, forcekillactive"
         "$mod,     T, exec, $term"
@@ -70,8 +71,8 @@ in
         "$mod, down,  movefocus, d"
         "$mod, up,    movefocus, u"
 
-        "$mod, mouse_up,   workspace, e+1"
-        "$mod, mouse_down, workspace, e-1"
+        "$mod, mouse_up,   workspace, r+1"
+        "$mod, mouse_down, workspace, r-1"
 
         # Groups
         "$mod, U, submap, groups"

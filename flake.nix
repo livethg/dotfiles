@@ -59,7 +59,12 @@
         ];
 
         specialArgs = {
-           inherit flake-utils home-manager hyprland nix-flatpak nix-colors;
+           inherit
+           flake-utils
+           home-manager
+           hyprland
+           nix-flatpak
+           nix-colors;
            inputs = self;
         };
       };

@@ -16,14 +16,17 @@
         # Hyprland cursor funnies
         "hyprctl setcursor 'oreo_white_cursors' 18"
 
+        # Start on browser window
+        "hyprctl dispatch workspace 5"
+
         # First workspace
-        "[workspace 1 silent] $status"
+        "[workspace 4 silent] $status"
 
         # Second workspace
-        "[workspace 2 silent] $browser"
+        "[workspace 5 silent] $browser"
 
         # Third workspace
-        "[workspace 3 silent] $term"
+        "[workspace 6 silent] $term"
       ];
     };
   };
