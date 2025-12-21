@@ -24,7 +24,6 @@
     hyprutils
     overskride
     superfile
-    walker
     waybar
     wireplumber
   ];

@@ -12,7 +12,6 @@ in
       bind = [
         # Popup windows
         "$opt3, V,     exec, bash -c \"${startClipse}\""
-        "$opt3, space, exec, walker"
 
         # Starts apps
         "$start,    Z,     exec, $browser"
@@ -23,6 +22,7 @@ in
         "$start,    P,     exec, $picker"
         "$start,    S,     exec, $scrsh"
         "$start,    G,     exec, $img"
+        "$start,    Q,     exec, $calc"
 
         "$start,    F,     submap, screenshots"
 

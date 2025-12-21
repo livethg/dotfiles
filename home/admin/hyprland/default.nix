@@ -49,6 +49,7 @@ rec {
       "$browser" = "$runZen";
 
       # Apps
+      "$calc"   = "qalculate-qt";
       "$code"   = "$term nvim ~";
       "$fmty"   = "superfile";
       "$img"    = "gimp";

@@ -65,7 +65,7 @@
            hyprland
            nix-flatpak
            nix-colors;
-           inputs = self;
+           inherit (self) inputs;
         };
       };
     };
