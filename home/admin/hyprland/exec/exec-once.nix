@@ -14,7 +14,7 @@
         # "waybar"
 
         # Hyprland cursor funnies
-        "hyprctl setcursor 'graphite-dark' 14"
+        "hyprctl setcursor 'oreo_white_cursors' 18"
 
         # First workspace
         "[workspace 1 silent] $status"

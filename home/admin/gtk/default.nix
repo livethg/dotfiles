@@ -28,9 +28,9 @@
   };
 
     cursorTheme = {
-      name    = "graphite-dark";
-      package = pkgs.graphite-cursors;
-      size    = 14;
+      name    = "oreo_white_cursors";
+      package = pkgs.oreo-cursors-plus;
+      size    = 18;
     };
 
     colorScheme = "dark";
@@ -38,8 +38,8 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    name       = "graphite-dark";
-    package    = pkgs.graphite-cursors;
-    size       = 14;
+    name       = "oreo_white_cursors";
+    package    = pkgs.oreo-cursors-plus;
+    size       = 18;
   };
 }
