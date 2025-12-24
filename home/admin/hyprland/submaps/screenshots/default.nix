@@ -18,6 +18,12 @@
 
             ", A, exec,   $scrshFS"
             ", A, submap, reset"
+
+            ", M, exec,   $scrshM"
+            ", M, submap, reset"
+
+            ", N, exec,   $scrshFM"
+            ", N, submap, reset"
           ];
         };
       };

@@ -27,6 +27,21 @@ rec {
   # Enables zsa keyboards
   hardware.keyboard.zsa.enable = true;
 
+  hardware.bluetooth = {
+    enable      = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental    = true;
+        FastConnectable = true;
+      };
+
+      Policy = {
+        AutoEnable = true;
+      };
+    };
+  };
+
   # Experimental features should be active at all times
   nix.settings.experimental-features = [
     "flakes"

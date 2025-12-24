@@ -11,5 +11,6 @@
     ./hyprshot
     ./kitty
     ./neovim
+    ./waybar
   ];
 }

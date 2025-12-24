@@ -18,7 +18,11 @@
     hyprshot
     kdePackages.qt6ct
     nwg-look
+    nuclear
     oh-my-zsh
+    qtcreator
+    texstudio
     thunderbird
+    vesktop
   ];
 }

@@ -8,6 +8,8 @@
   environment.systemPackages = with pkgs; [
     acpi
     bat
+    bluez
+    bluez-tools
     brightnessctl
     btop
     cmake
@@ -27,6 +29,7 @@
     git
     iotop
     jq
+    libnotify
     libgcc
     lsof
     p7zip

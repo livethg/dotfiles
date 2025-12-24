@@ -38,9 +38,6 @@ rec {
 
     xwayland.enable = true;
 
-    # Put your variables here.
-    # Settings configs will be in
-    # other files in this directory.
     settings = {
       # Browser
       "$zen"     = "app.zen_browser.zen";
@@ -49,13 +46,17 @@ rec {
       "$browser" = "$runZen";
 
       # Apps
-      "$calc"   = "qalculate-qt";
-      "$code"   = "$term nvim ~";
-      "$fmty"   = "superfile";
-      "$img"    = "gimp";
-      "$picker" = "hyprpicker -a";
-      "$status" = "$term btop";
-      "$term"   = "kitty";
+      "$calc"    = "qalculate-qt";
+      "$code"    = "$term nvim ~";
+      "$discord" = "vesktop";
+      "$fmty"    = "superfile";
+      "$img"     = "gimp";
+      "$music"   = "nuclear";
+      "$pen"     = "xournalpp";
+      "$picker"  = "hyprpicker -a";
+      "$status"  = "$term btop";
+      "$term"    = "kitty";
+      "$tex"     = "texstudio";
 
       # Screenshot variables
       "$imgpth"  = "~/Pictures/Screenshots";
@@ -83,18 +84,13 @@ rec {
       "$poweroff"  = "systemctl poweroff";
       "$hibernate" = "systemctl hibernate";
     } // (
-      lib.optionalAttrs (services.flameshot.enable) {
-        "$scrsh"   = "flameshot gui -c";
-        "$scrshS"  = "$mkscrpt flameshot gui -c -p $imgpth";
-        "$scrshF"  = "flameshot full -c";
-        "$scrshFS" = "$mkscrpt flameshot full -c -p $imgpth";
-      }
-    ) // (
       lib.optionalAttrs (programs.hyprshot.enable) {
         "$scrsh"   = "hyprshot -z -m region --clipboard-only";
         "$scrshS"  = "$mkscrpt hyprshot -z -m region -o $imgpth";
-        "$scrshF"  = "hyprshot -z -m output -m active";
-        "$scrshFS" = "$mkscrpt hyprshot -z -m output -m active -o $imgpth";
+        "$scrshF"  = "hyprshot -z -m output --clipboard-only";
+        "$scrshFS" = "$mkscrpt hyprshot -z -m output -o $imgpth";
+        "$scrshM"  = "export TMP=`mktemp -d`; hyprshot -m region -o $TMP -f 'screenshot.png'; gimp \"$TMP/screenshot.png\"; unset TMP";
+        "$scrshFM" = "export TMP=`mktemp -d`; hyprshot -m output -o $TMP -f 'screenshot.png'; gimp \"$TMP/screenshot.png\"; unset TMP";
       }
     );
   };

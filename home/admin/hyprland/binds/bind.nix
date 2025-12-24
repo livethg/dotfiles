@@ -14,15 +14,20 @@ in
         "$opt3, V,     exec, bash -c \"${startClipse}\""
 
         # Starts apps
-        "$start,    Z,     exec, $browser"
-        "$start,    T,     exec, $term"
-        "$start,    slash, exec, $term $fmty"
-        "$start,    C,     exec, $code"
         "$start,    B,     exec, $status"
-        "$start,    P,     exec, $picker"
-        "$start,    S,     exec, $scrsh"
+        "$start,    C,     exec, $code"
+        "$start,    D,     exec, $discord"
         "$start,    G,     exec, $img"
+        "$start,    L,     exec, libreoffice"
+        "$start,    M,     exec, $music"
+        "$start,    P,     exec, $picker"
         "$start,    Q,     exec, $calc"
+        "$start,    E,     exec, $pen"
+        "$start,    S,     exec, $scrsh"
+        "$start,    T,     exec, $term"
+        "$start,    X,     exec, $tex"
+        "$start,    Z,     exec, $browser"
+        "$start,    slash, exec, $term $fmty"
 
         "$start,    F,     submap, screenshots"
 
