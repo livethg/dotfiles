@@ -16,6 +16,9 @@ rec {
     lib.lists.optional wayland.windowManager.hyprland.enable ./hyprland
   );
 
+  # List of services
+  services.udiskie.enable = true;
+
   # Lets home-manager manage itself
   programs.home-manager.enable = true;
 
