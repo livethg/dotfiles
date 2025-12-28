@@ -7,7 +7,10 @@
     settings = {
       main = {
         "hyprland/windowcount" = {
-          # All default values here
+          format = "{}";
+
+          min-length = 1;
+          max-length = 1;
         };
       };
     };

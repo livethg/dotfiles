@@ -7,7 +7,10 @@
     settings = {
       main = {
         "hyprland/language" = {
-          format  = " {}";
+          format  = "   {}";
+
+          min-length = 20;
+          max-length = 20;
         };
       };
     };

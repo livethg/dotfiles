@@ -6,6 +6,7 @@
   imports = [
     ./audio.nix
     ./battery.nix
+    ./bluetooth.nix
     ./clock.nix
     ./cpu.nix
     ./light.nix

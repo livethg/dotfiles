@@ -7,7 +7,7 @@
     settings = {
       main = {
         battery = {
-          format-discharging = "{icon} {capacity}%";
+          format-discharging = "{icon}   {capacity}%";
           format-icons       = [
             ""
             ""
@@ -27,6 +27,9 @@
             on-discharging-critical = "notify-send 'Battery Critical (10%)' -u critical -i 'battery-010' -r 1525";
             on-charging-100         = "notify-send 'Battery Full (100%)' -i 'battery-100-charged'";
           };
+
+          min-length = 6;
+          max-length = 6;
         };
       };
     };
