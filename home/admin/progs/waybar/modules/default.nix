@@ -15,5 +15,6 @@
     ./temperature.nix
     ./custom
     ./hyprland
+    ./separators
   ];
 }

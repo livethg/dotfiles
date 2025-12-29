@@ -13,7 +13,7 @@
       "DisableFirefoxStudies" = true;
 
       "Extensions" = {
-        "Install" = [
+        "Install"  = [
           "https://addons.mozilla.org/firefox/downloads/file/4591110/search_by_image-8.3.0.xpi"
           "https://addons.mozilla.org/firefox/downloads/file/4538560/languagetool-9.0.1.xpi"
           "https://addons.mozilla.org/firefox/downloads/file/4570378/privacy_badger17-2025.9.2.xpi"
@@ -50,10 +50,11 @@
       "RequestedLocales" = [ "en-CA" "CA" "en-US" "fr" ];
 
       "SanitizeOnShutdown" = true;
-      "SearchBar" = "separate";
-      "SearchEngines" = {
+      "SearchBar"          = "separate";
+      "SearchEngines"      = {
         "Default" = "DuckDuckGo";
       };
+
       "SearchSuggestEnabled" = false;
     };
   };

@@ -1,7 +1,57 @@
 {
+  pkgs,
   ...
 }:
 
+let
+  inherit (pkgs) callPackage lib;
+
+  # Templates
+  lslash = (
+    callPackage ./modules/separators/lslash.nix {}
+  ).programs.waybar.settings.main."custom/lslash";
+  rslash = (
+    callPackage ./modules/separators/rslash.nix {}
+  ).programs.waybar.settings.main."custom/rslash";
+
+  # Functions
+  mkLSlash = { name, left, right }: {
+    text = ''
+      #custom-lslash-${name} {
+        background: linear-gradient(115deg, ${left} 0%, ${left} 50%, ${right} 50%, ${right} 100%);
+      }
+    '';
+
+    moduleName = "custom/lslash-${name}";
+    module     = lslash;
+  };
+  mkRSlash = { name, left, right }: {
+    text = ''
+      #custom-rslash-${name} {
+        background: linear-gradient(115deg, ${left} 0%, ${left} 50%, ${right} 50%, ${right} 100%);
+      }
+    '';
+
+    moduleName = "custom/rslash-${name}";
+    module     = rslash;
+  };
+
+  toAttr = set: { "${set.moduleName}" = set.module; };
+  toStr  = set: "${set.text}";
+
+  toAttrList = list: lib.foldl' (x: y: x // y) {} (map (x: toAttr x) list);
+  toStrList  = list: lib.foldl' (x: y: x + y) "" (map (x: toStr x) list);
+
+  # Lists
+  lslashes = (
+    map (x: mkLSlash x) [
+    ]
+  );
+  rslashes = (
+    map (x: mkRSlash x) [
+    ]
+  );
+in
 {
   imports = [
     ./modules
@@ -18,28 +68,20 @@
         color:       white;
       }
 
-      #workspaces button {
-        font-size: 8px;
-      }
-
       #custom-privacydots {
         font-family: CaskaydiaMono Nerd Font;
         font-size:   8px;
       }
 
-      #clock {
-        font-weight: bold;
+      #workspaces button {
+        font-size: 8px;
       }
 
       #windowcount label {
         font-weight: bold;
       }
 
-      #custom-text-sep-left {
-        font-weight: bold;
-      }
-
-      #custom-text-sep-right {
+      #clock {
         font-weight: bold;
       }
 
@@ -53,12 +95,6 @@
         background-color: rgba(240, 128, 128, 0.55);
       }
 
-      /* Background colors */
-      window#waybar {
-        background-color: rgba(43, 43, 43, 0.9);
-        border-radius:    8px;
-      }
-
       /* Spacing */
       * {
         min-height: 0; /* Do not modify, fixes a bug with height */
@@ -66,6 +102,10 @@
 
       #custom-privacydots {
         margin: 0px 5px 0px 10px;
+      }
+
+      #workspaces {
+        padding: 5px 0px 5px 0px;
       }
 
       #windowcount {
@@ -76,10 +116,6 @@
         margin: 0px 10px 0px 0px;
       }
 
-      #workspaces {
-        padding: 5px 0px 5px 0px;
-      }
-
       /* Workspace */
       #workspaces button {
         border: 1px solid rgba(255, 255, 255, 0.5);
@@ -88,7 +124,11 @@
       #workspaces button.active {
         background-color: rgba(255, 255, 255, 0.2);
       }
-    '';
+    '' + (
+      toStrList lslashes
+    ) + (
+      toStrList rslashes
+    );
     settings = {
       main = {
         mode     = "dock";
@@ -106,6 +146,7 @@
           "temperature"
           "cpu"
           "memory"
+          "custom/lslash-example"
           "clock"
           "battery"
           "pulseaudio"
@@ -119,7 +160,11 @@
         ];
 
         reload_style_on_change = true;
-      };
+      } // (
+        toAttrList lslashes
+      ) // (
+        toAttrList rslashes
+      );
     };
   };
 }
