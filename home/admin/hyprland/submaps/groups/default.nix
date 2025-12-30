@@ -5,14 +5,6 @@
 
 {
   wayland.windowManager.hyprland = {
-    # This setting is only available on home-manager
-    # with NixOS version greater than 25.05 (currently,
-    # the only version greater than 25.05 is the unstable
-    # version of NixOS).
-    #
-    # For reference, the submaps option was added in June 2025
-    # in the pull request:
-    # https://github.com/nix-community/home-manager/pull/7277
     submaps = {
       groups = {
         settings = {

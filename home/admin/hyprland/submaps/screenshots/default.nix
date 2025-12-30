@@ -24,6 +24,9 @@
 
             ", N, exec,   $scrshFM"
             ", N, submap, reset"
+
+            ",       catchall, submap, reset"
+            "$start, U,        submap, reset"
           ];
         };
       };
