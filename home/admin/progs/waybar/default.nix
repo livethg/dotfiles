@@ -88,58 +88,44 @@ let
     map (x: mkLSlash x) [
       {
         name    = "dots-workspace";
-        left    = "rgba(85, 85, 85, 0.2)";
-        middlel = "#555555";
-        middler = "blueviolet";
-        right   = "rgba(138, 43, 226, 0.2)";
+        middlel = "rgba(85, 85, 85, 0.5)";
+        middler = "rgba(138, 43, 226, 0.5)";
       }
       {
         name    = "workspace-windowcount";
-        left    = "rgba(138, 43, 226, 0.2)";
-        middlel = "blueviolet";
-        middler = "burlywood";
-        right   = "rgba(222, 184, 135, 0.2)";
+        middlel = "rgba(138, 43, 226, 0.5)";
+        middler = "rgba(222, 184, 135, 0.5)";
       }
       {
         name    = "windowcount-window";
-        left    = "rgba(222, 184, 135, 0.2)";
-        middlel = "burlywood";
-        middler = "cadetblue";
-        right   = "rgba(95, 158, 160, 0.2)";
+        middlel = "rgba(222, 184, 135, 0.5)";
+        middler = "rgba(95, 158, 160, 0.5)";
       }
       {
         name    = "window-end";
         border  = null;
-        left    = "rgba(95, 158, 160, 0.2)";
         middlel = "${borderCol}";
         middler = "${borderCol}";
         right   = "transparent";
       }
       {
         name    = "time-battery";
-        left    = "rgba(255, 255, 255, 0.2)";
-        middlel = "white";
-        middler = "#1E90FF";
-        right   = "rgba(225, 144, 255, 0.2)";
+        middlel = "rgba(255, 255, 255, 0.5)";
+        middler = "rgba(30, 144, 255, 0.5)";
       }
       {
         name    = "battery-audio";
-        left    = "rgba(225, 144, 255, 0.2)";
-        middlel = "#1E90FF";
-        middler = "dimgrey";
-        right   = "rgba(105, 105, 105, 0.2)";
+        middlel = "rgba(30, 144, 255, 0.5)";
+        middler = "rgba(105, 105, 105, 0.5)";
       }
       {
         name    = "audio-light";
-        left    = "rgba(105, 105, 105, 0.2)";
-        middlel = "dimgrey";
-        middler = "#EEE8AA";
-        right   = "rgba(238, 232, 170, 0.2)";
+        middlel = "rgba(105, 105, 105, 0.5)";
+        middler = "rgba(238, 232, 170, 0.5)";
       }
       {
         name    = "light-end";
         border  = null;
-        left    = "rgba(238, 232, 170, 0.2)";
         middlel = "${borderCol}";
         middler = "${borderCol}";
         right   = "transparent";
@@ -154,28 +140,21 @@ let
         left    = "transparent";
         middlel = "${borderCol}";
         middler = "${borderCol}";
-        right   = "rgba(220, 20, 60, 0.2)";
       }
       {
         name    = "temperature-cpu";
-        left    = "rgba(220, 20, 60, 0.2)";
-        middlel = "#DC143C";
-        middler = "darkcyan";
-        right   = "rgba(0, 139, 139, 0.2)";
+        middlel = "rgba(220, 20, 60, 0.5)";
+        middler = "rgba(0, 139, 139, 0.5)";
       }
       {
         name    = "cpu-memory";
-        left    = "rgba(0, 139, 139, 0.2)";
-        middlel = "darkcyan";
-        middler = "lightcoral";
-        right   = "rgba(240, 128, 128, 0.2)";
+        middlel = "rgba(0, 139, 139, 0.5)";
+        middler = "rgba(240, 128, 128, 0.5)";
       }
       {
         name    = "memory-time";
-        left    = "rgba(240, 128, 128, 0.2)";
-        middlel = "lightcoral";
-        middler = "white";
-        right   = "rgba(255, 255, 255, 0.2)";
+        middlel = "rgba(240, 128, 128, 0.5)";
+        middler = "rgba(255, 255, 255, 0.5)";
       }
       {
         name    = "end-submap";
@@ -183,28 +162,21 @@ let
         left    = "transparent";
         middlel = "${borderCol}";
         middler = "${borderCol}";
-        right   = "rgba(250, 128, 114, 0.2)";
       }
       {
         name    = "submap-language";
-        left    = "rgba(250, 128, 114, 0.2)";
-        middlel = "salmon";
-        middler = "palevioletred";
-        right   = "rgba(219, 112, 147, 0.2)";
+        middlel = "rgba(250, 128, 114, 0.5)";
+        middler = "rgba(219, 112, 147, 0.5)";
       }
       {
         name    = "language-bluetooth";
-        left    = "rgba(219, 112, 147, 0.2)";
-        middlel = "palevioletred";
-        middler = "skyblue";
-        right   = "rgba(135, 206, 235, 0.2)";
+        middlel = "rgba(219, 112, 147, 0.5)";
+        middler = "rgba(135, 206, 235, 0.5)";
       }
       {
         name    = "bluetooth-network";
-        left    = "rgba(135, 206, 235, 0.2)";
-        middlel = "skyblue";
-        middler = "silver";
-        right   = "rgba(192, 192, 192, 0.2)";
+        middlel = "rgba(135, 206, 235, 0.5)";
+        middler = "rgba(192, 192, 192, 0.5)";
       }
     ]
   );
@@ -295,92 +267,63 @@ in
       #network
       {
         border-bottom:    2px solid ${borderCol};
-      }
-
-      #custom-privacydots {
-        background-color: rgba(85, 85, 85, 0.2);
-      }
-
-      #workspaces {
-        background-color: rgba(138, 43, 226, 0.2);
-      }
-
-      #workspaces label {
-        color: blueviolet;
-      }
-
-      #windowcount {
-        background-color: rgba(222, 184, 135, 0.2);
-      }
-
-      #windowcount label {
-        color: burlywood;
-      }
-
-      #window {
-        background-color: rgba(95, 158, 160, 0.2);
-      }
-
-      #window label {
-        color: cadetblue;
-      }
-
-      #temperature {
-        background-color: rgba(220, 20, 60, 0.2);
-        color: #DC143C;
-      }
-
-      #cpu {
-        background-color: rgba(0, 139, 139, 0.2);
-        color: darkcyan;
-      }
-
-      #memory {
-        background-color: rgba(240, 128, 128, 0.2);
-        color: lightcoral;
+        background-color: rgba(18, 20, 22, 0.8);
       }
 
       #clock {
-        background-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      #workspaces label {
+        color: rgb(138, 43, 226);
+      }
+
+      #windowcount label {
+        color: rgb(222, 184, 135);
+      }
+
+      #window label {
+        color: rgb(95, 158, 160);
       }
 
       #battery {
-        background-color: rgba(225, 144, 255, 0.2);
-        color: #1E90FF;
+        color: rgb(30, 144, 255);
       }
 
       #pulseaudio {
-        background-color: rgba(105, 105, 105, 0.2);
-        color: dimgrey;
+        color: rgb(105, 105, 105);
       }
 
       #backlight {
-        background-color: rgba(238, 232, 170, 0.2);
-        color: #EEE8AA;
+        color: rgb(238, 232, 170);
+      }
+
+      #temperature {
+        color: rgb(220, 20, 60);
+      }
+
+      #cpu {
+        color: rgb(0, 139, 139);
+      }
+
+      #memory {
+        color: rgb(240, 128, 128);
       }
 
       #submap {
-        background-color: rgba(250, 128, 114, 0.2);
-        color: salmon;
+        color: rgb(250, 128, 114);
       }
 
       #language {
-        background-color: rgba(219, 112, 147, 0.2);
-        color: palevioletred;
+        color: rgb(219, 112, 147);
       }
 
       #bluetooth {
-        background-color: rgba(135, 206, 235, 0.2);
-        color: skyblue;
+        color: rgb(135, 206, 235);
       }
 
       #network {
-        background-color: rgba(192, 192, 192, 0.2);
-        color: silver;
-      }
-
-      #custom-lslash-window-end {
-        background-color: rgba(0, 0, 0, 0);
+        color: rgb(192, 192, 192);
       }
 
       /* AUTO GENERATED */
