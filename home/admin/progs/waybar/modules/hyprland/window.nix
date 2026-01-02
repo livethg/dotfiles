@@ -9,6 +9,7 @@
         "hyprland/window" = {
           format     = "{title}";
 
+          min-length = 15;
           max-length = 15;
         };
       };

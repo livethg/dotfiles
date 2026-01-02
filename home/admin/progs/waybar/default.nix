@@ -5,7 +5,7 @@
 
 let
   inherit (pkgs) callPackage lib;
-  borderCol = "rgba(22, 88, 150, 1)";
+  borderCol = "null";
 
   # Templates
   lslash = (
@@ -38,9 +38,9 @@ let
           ${right}   100%
         );
     '' + (
-      if border == null
+      if border == null || border == "null"
       then ""
-      else "border-bottom: 2px solid rgba(22, 88, 150, 1)"
+      else "border-bottom: 2px solid ${border};"
     ) + "}";
 
     moduleName = "custom/lslash-${name}";
@@ -68,9 +68,9 @@ let
           ${right}   100%
         );
     '' + (
-      if border == null
+      if border == null || border == "null"
       then ""
-      else "border-bottom: 2px solid ${borderCol}"
+      else "border-bottom: 2px solid ${border};"
     ) + "}";
 
     moduleName = "custom/rslash-${name}";
@@ -83,51 +83,67 @@ let
   toAttrList = list: lib.foldl' (x: y: x // y) {} (map (x: toAttr x) list);
   toStrList  = list: lib.foldl' (x: y: x + y) "" (map (x: toStr x) list);
 
+  nullColor  = col: if col == null || col == "null" then "transparent" else "${col}";
+
   # Lists
   lslashes = (
     map (x: mkLSlash x) [
       {
         name    = "dots-workspace";
-        middlel = "rgba(85, 85, 85, 0.5)";
-        middler = "rgba(138, 43, 226, 0.5)";
+        left    = "rgba(15, 25, 39, 0.8)";
+        middlel = "rgba(15, 25, 39, 0.8)";
+        middler = "rgba(18, 27, 19, 0.8)";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "workspace-windowcount";
-        middlel = "rgba(138, 43, 226, 0.5)";
-        middler = "rgba(222, 184, 135, 0.5)";
+        left    = "rgba(18, 27, 19, 0.8)";
+        middlel = "rgba(18, 27, 19, 0.8)";
+        middler = "rgba(15, 25, 39, 0.8)";
+        right   = "rgba(15, 25, 39, 0.8)";
       }
       {
         name    = "windowcount-window";
-        middlel = "rgba(222, 184, 135, 0.5)";
-        middler = "rgba(95, 158, 160, 0.5)";
+        left    = "rgba(15, 25, 39, 0.8)";
+        middlel = "rgba(15, 25, 39, 0.8)";
+        middler = "rgba(18, 27, 19, 0.8)";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "window-end";
+        left    = "rgba(18, 27, 19, 0.8)";
         border  = null;
-        middlel = "${borderCol}";
-        middler = "${borderCol}";
+        middlel = nullColor "${borderCol}";
+        middler = nullColor "${borderCol}";
         right   = "transparent";
       }
       {
         name    = "time-battery";
-        middlel = "rgba(255, 255, 255, 0.5)";
-        middler = "rgba(30, 144, 255, 0.5)";
+        left    = "rgba(15, 25, 39, 0.8)";
+        middlel = "rgba(15, 25, 39, 0.8)";
+        middler = "rgba(18, 27, 19, 0.8)";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "battery-audio";
-        middlel = "rgba(30, 144, 255, 0.5)";
-        middler = "rgba(105, 105, 105, 0.5)";
+        left    = "rgba(18, 27, 19, 0.8)";
+        middlel = "rgba(18, 27, 19, 0.8)";
+        middler = "rgba(15, 25, 39, 0.8)";
+        right   = "rgba(15, 25, 39, 0.8)";
       }
       {
         name    = "audio-light";
-        middlel = "rgba(105, 105, 105, 0.5)";
-        middler = "rgba(238, 232, 170, 0.5)";
+        left    = "rgba(15, 25, 39, 0.8)";
+        middlel = "rgba(15, 25, 39, 0.8)";
+        middler = "rgba(18, 27, 19, 0.8)";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "light-end";
+        left    = "rgba(18, 27, 19, 0.8)";
         border  = null;
-        middlel = "${borderCol}";
-        middler = "${borderCol}";
+        middlel = nullColor "${borderCol}";
+        middler = nullColor "${borderCol}";
         right   = "transparent";
       }
     ]
@@ -138,45 +154,59 @@ let
         name    = "end-temperature";
         border  = null;
         left    = "transparent";
-        middlel = "${borderCol}";
-        middler = "${borderCol}";
+        middlel = nullColor "${borderCol}";
+        middler = nullColor "${borderCol}";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "temperature-cpu";
-        middlel = "rgba(220, 20, 60, 0.5)";
-        middler = "rgba(0, 139, 139, 0.5)";
+        left    = "rgba(18, 27, 19, 0.8)";
+        middlel = "rgba(18, 27, 19, 0.8)";
+        middler = "rgba(15, 25, 39, 0.8)";
+        right   = "rgba(15, 25, 39, 0.8)";
       }
       {
         name    = "cpu-memory";
-        middlel = "rgba(0, 139, 139, 0.5)";
-        middler = "rgba(240, 128, 128, 0.5)";
+        left    = "rgba(15, 25, 39, 0.8)";
+        middlel = "rgba(15, 25, 39, 0.8)";
+        middler = "rgba(18, 27, 19, 0.8)";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "memory-time";
-        middlel = "rgba(240, 128, 128, 0.5)";
-        middler = "rgba(255, 255, 255, 0.5)";
+        left    = "rgba(18, 27, 19, 0.8)";
+        middlel = "rgba(18, 27, 19, 0.8)";
+        middler = "rgba(15, 25, 39, 0.8)";
+        right   = "rgba(15, 25, 39, 0.8)";
       }
       {
         name    = "end-submap";
         border  = null;
         left    = "transparent";
-        middlel = "${borderCol}";
-        middler = "${borderCol}";
+        middlel = nullColor "${borderCol}";
+        middler = nullColor "${borderCol}";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "submap-language";
-        middlel = "rgba(250, 128, 114, 0.5)";
-        middler = "rgba(219, 112, 147, 0.5)";
+        left    = "rgba(18, 27, 19, 0.8)";
+        middlel = "rgba(18, 27, 19, 0.8)";
+        middler = "rgba(15, 25, 39, 0.8)";
+        right   = "rgba(15, 25, 39, 0.8)";
       }
       {
         name    = "language-bluetooth";
-        middlel = "rgba(219, 112, 147, 0.5)";
-        middler = "rgba(135, 206, 235, 0.5)";
+        left    = "rgba(15, 25, 39, 0.8)";
+        middlel = "rgba(15, 25, 39, 0.8)";
+        middler = "rgba(18, 27, 19, 0.8)";
+        right   = "rgba(18, 27, 19, 0.8)";
       }
       {
         name    = "bluetooth-network";
-        middlel = "rgba(135, 206, 235, 0.5)";
-        middler = "rgba(192, 192, 192, 0.5)";
+        left    = "rgba(18, 27, 19, 0.8)";
+        middlel = "rgba(18, 27, 19, 0.8)";
+        middler = "rgba(15, 25, 39, 0.8)";
+        right   = "rgba(15, 25, 39, 0.8)";
       }
     ]
   );
@@ -240,15 +270,6 @@ in
         background-color: transparent;
       }
 
-      /* Workspace */
-      #workspaces button {
-        border: 1px solid rgba(255, 255, 255, 0.5);
-      }
-
-      #workspaces button.active {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
       /* Colors and borders */
       #custom-privacydots,
       #workspaces,
@@ -266,8 +287,32 @@ in
       #bluetooth,
       #network
       {
-        border-bottom:    2px solid ${borderCol};
-        background-color: rgba(18, 20, 22, 0.8);
+        '' + (
+        if borderCol == null || borderCol == "null"
+        then ""
+        else "border-bottom:    2px solid ${borderCol};"
+        ) + ''
+      }
+
+      #custom-privacydots,
+      #windowcount,
+      #cpu,
+      #clock,
+      #pulseaudio,
+      #language,
+      #network {
+        background: rgba(15, 25, 39, 0.8);
+      }
+
+      #workspaces,
+      #window,
+      #temperature,
+      #memory,
+      #battery,
+      #backlight,
+      #submap,
+      #bluetooth {
+        background: rgba(18, 27, 19, 0.8);
       }
 
       #clock {
@@ -324,6 +369,11 @@ in
 
       #network {
         color: rgb(192, 192, 192);
+      }
+
+      /* Workspace */
+      #workspaces button.active {
+        background-color: rgba(255, 255, 255, 0.1);
       }
 
       /* AUTO GENERATED */
