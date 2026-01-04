@@ -12,12 +12,15 @@ in
       bind = [
         # Popup windows
         "$opt3, V,     exec, bash -c \"${startClipse}\""
+        "$opt3, space, exec, $launcher"
 
         # Starts apps
+        "$start,    A,     exec, albert" # In case albert crashes
         "$start,    B,     exec, $status"
         "$start,    C,     exec, $code"
         "$start,    D,     exec, $discord"
         "$start,    G,     exec, $img"
+        "$start,    H,     exec, $help"
         "$start,    L,     exec, libreoffice"
         "$start,    M,     exec, $music"
         "$start,    P,     exec, $picker"

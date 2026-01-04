@@ -22,6 +22,7 @@
             "title<.*twitch.*>"                       = "";
             "title<.*reddit.*>"                       = "󰑍";
             "title<.*youtube.*>"                      = "";
+            "class<albert>"                           = "󰌧";
             "class<app.zen_browser.zen>"              = "󰊷";
             "class<nuclear>"                          = "";
             "class<firefox>"                          = "󰈹";
@@ -41,6 +42,7 @@
             "class<tor>"                              = "";
             "class<thunderbird>"                      = "";
             "class<vesktop>"                          = "";
+            "class<zeal>"                             = "󰡦";
             "title<.*btop.*>"                         = "󰙵";
             "title<.*vim.*>"                          = "";
             "title<.*.rs>"                            = "";

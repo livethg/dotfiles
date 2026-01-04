@@ -28,8 +28,8 @@
             on-charging-100         = "notify-send 'Battery Full (100%)' -i 'battery-100-charged'";
           };
 
-          min-length = 6;
-          max-length = 6;
+          min-length = 7;
+          max-length = 7;
         };
       };
     };

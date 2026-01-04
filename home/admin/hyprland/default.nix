@@ -28,8 +28,9 @@ rec {
     ./submaps
   ];
 
-  services.flameshot.enable = (pkgs.callPackage ../progs/flameshot/default.nix {}).services.flameshot.enable;
-  programs.hyprshot.enable  = (pkgs.callPackage ../progs/hyprshot/default.nix {}).programs.hyprshot.enable;
+  programs.hyprshot.enable  = (
+    pkgs.callPackage ../progs/hyprshot/default.nix {}
+  ).programs.hyprshot.enable;
 
   wayland.windowManager.hyprland = {
     enable        = true;
@@ -40,23 +41,25 @@ rec {
 
     settings = {
       # Browser
-      "$zen"     = "app.zen_browser.zen";
-      "$runZen"  = "flatpak run $zen";
-      "$fire"    = "firefox";
-      "$browser" = "$runZen";
+      "$browser"  = "$runZen";
+      "$fire"     = "firefox";
+      "$runZen"   = "flatpak run $zen";
+      "$zen"      = "app.zen_browser.zen";
 
       # Apps
-      "$calc"    = "qalculate-qt";
-      "$code"    = "$term nvim ~";
-      "$discord" = "vesktop";
-      "$fmty"    = "superfile";
-      "$img"     = "gimp";
-      "$music"   = "nuclear";
-      "$pen"     = "xournalpp";
-      "$picker"  = "hyprpicker -a";
-      "$status"  = "$term btop";
-      "$term"    = "kitty";
-      "$tex"     = "texstudio";
+      "$calc"     = "qalculate-qt";
+      "$code"     = "$term nvim ~";
+      "$discord"  = "vesktop";
+      "$fmty"     = "superfile";
+      "$launcher" = "echo -n '[\"toggle\"]' | nc -U ~/.cache/albert/ipc_socket";
+      "$help"     = "zeal";
+      "$img"      = "gimp";
+      "$music"    = "nuclear";
+      "$pen"      = "xournalpp";
+      "$picker"   = "hyprpicker -a";
+      "$status"   = "$term btop";
+      "$term"     = "kitty";
+      "$tex"      = "texstudio";
 
       # Screenshot variables
       "$imgpth"  = "~/Pictures/Screenshots";

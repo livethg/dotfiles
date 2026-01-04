@@ -17,8 +17,8 @@
         "3, horizontal, workspace"
 
         # Window moving
-        "3, right, mod: $modOpt1, dispatcher, movetoworkspacesilent, r+1"
-        "3, left,  mod: $modOpt1, dispatcher, movetoworkspacesilent, r-1"
+        "3, right, mod: $mod, dispatcher, movetoworkspace, r+1"
+        "3, left,  mod: $mod, dispatcher, movetoworkspace, r-1"
 
         # Toggling options
         "4, down, dispatcher, exec, $lock"

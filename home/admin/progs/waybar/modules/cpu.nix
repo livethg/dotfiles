@@ -10,8 +10,8 @@
           format         = "󰍛  {usage}%";
           tooltip-format = "Load: {load}";
 
-          min-length = 6;
-          max-length = 6;
+          min-length = 7;
+          max-length = 7;
         };
       };
     };

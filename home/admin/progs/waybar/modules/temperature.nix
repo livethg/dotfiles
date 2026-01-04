@@ -15,8 +15,8 @@
 
           tooltip-format  = "{temperatureF}°F";
 
-          min-length = 6;
-          max-length = 6;
+          min-length = 7;
+          max-length = 7;
         };
       };
     };

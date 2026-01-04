@@ -11,7 +11,6 @@
 
   # Nix packages
   home.packages = with pkgs; [
-    flameshot
     gimp
     graphite-gtk-theme
     home-manager
@@ -24,5 +23,6 @@
     texstudio
     thunderbird
     vesktop
+    zeal
   ];
 }

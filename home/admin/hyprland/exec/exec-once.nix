@@ -8,6 +8,7 @@
     settings = {
       exec-once = [
         # Utils
+        "albert"
         "clipse -listen"
         "hypridle"
         "waybar"

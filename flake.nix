@@ -39,6 +39,18 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           {
+            nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+             # Quote from albert's license:
+             #
+             # > This is basically a BSD-2-Clause without the permission for redistribution
+             # > of modifications and an explicit exclusion of Microsoft or Apple platforms.
+             #
+             # So, even if nixpkgs considers this unfree, it can be tolerated.
+             # Plus, it's a rare linux exclusive, which is always fun.
+             "albert"
+           ];
+          }
+          {
             home-manager = {
               useGlobalPkgs   = true;
               useUserPackages = true;

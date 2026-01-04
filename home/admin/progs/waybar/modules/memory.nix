@@ -11,8 +11,8 @@
           interval       = 10;
           tooltip-format = "Used {used:0.0f} GB";
 
-          min-length = 6;
-          max-length = 6;
+          min-length = 7;
+          max-length = 7;
         };
       };
     };

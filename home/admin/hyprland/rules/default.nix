@@ -10,28 +10,25 @@ rec {
   imports = [
   ];
 
-  services.flameshot.enable = (pkgs.callPackage ../../progs/flameshot/default.nix {}).services.flameshot.enable;
-
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
         "animation popin, class:clipse"
         "float,           class:clipse"
         "size 622 652,    class:clipse"
+        "pin,             class:clipse"
+
+        "animation popin, title:Albert"
+        "float,           title:Albert"
+        "pin,             title:Albert"
+        "noblur,          title:Albert"
+        "noshadow,        title:Albert"
+        "bordersize 0,    title:Albert"
 
         # Bug fixes
         "suppressevent maximize, class:.*"
         "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-      ] ++ (
-        lib.optionals (services.flameshot.enable) [
-          # Screencapture
-          "float,          title:^(flameshot)$"
-          "move 0 0,       title:^(flameshot)$"
-          "noanim,         title:^(flameshot)$"
-          "pin,            title:^(flameshot)$"
-          "monitor 1,      title:^(flameshot)$"
-        ]
-      );
+      ];
     };
   };
 }

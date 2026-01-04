@@ -39,6 +39,7 @@
     python313Packages.xmljson
     ripgrep
     rocmPackages.llvm.bintools
+    sqlite
     tmux
     tree
     udiskie

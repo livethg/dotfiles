@@ -5,7 +5,7 @@
 
 {
   imports = [
-    ./flameshot
+    ./albert
     ./fzf
     ./gpg
     ./hyprshot
