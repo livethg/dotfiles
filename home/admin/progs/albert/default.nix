@@ -1,5 +1,6 @@
 {
   pkgs,
+  colors,
   ...
 }:
 
@@ -8,7 +9,9 @@
     (
       let
         outPath   = "$out/share/albert/widgetsboxmodel/themes";
-        themeFile = ./Default.qss;
+        themeFile = builtins.toFile "Default.qss" (
+          import ./albert-theme.nix { inherit colors; }
+        );
       in
       albert.overrideAttrs {
         preInstall = ''

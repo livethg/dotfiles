@@ -23,6 +23,8 @@ rec {
         "pin,             title:Albert"
         "noblur,          title:Albert"
         "noshadow,        title:Albert"
+        "nodim,           title:Albert"
+        "dimaround off,   title:Albert"
         "bordersize 0,    title:Albert"
 
         # Bug fixes

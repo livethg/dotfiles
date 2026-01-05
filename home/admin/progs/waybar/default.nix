@@ -1,11 +1,15 @@
 {
   pkgs,
+  colors,
   ...
 }:
 
 let
   inherit (pkgs) callPackage lib;
   borderCol = "null";
+  color1    = colors.base02;
+  color2    = colors.base00;
+  opacity   = "0.8";
 
   # Templates
   lslash = (
@@ -37,6 +41,7 @@ let
           ${right}    55%,
           ${right}   100%
         );
+        opacity: ${opacity};
     '' + (
       if border == null || border == "null"
       then ""
@@ -67,6 +72,7 @@ let
           ${right}    55%,
           ${right}   100%
         );
+        opacity: ${opacity};
     '' + (
       if border == null || border == "null"
       then ""
@@ -90,28 +96,28 @@ let
     map (x: mkLSlash x) [
       {
         name    = "dots-workspace";
-        left    = "rgba(15, 25, 39, 0.8)";
-        middlel = "rgba(15, 25, 39, 0.8)";
-        middler = "rgba(18, 27, 19, 0.8)";
-        right   = "rgba(18, 27, 19, 0.8)";
+        left    = "${color1}";
+        middlel = "${color1}";
+        middler = "${color2}";
+        right   = "${color2}";
       }
       {
         name    = "workspace-windowcount";
-        left    = "rgba(18, 27, 19, 0.8)";
-        middlel = "rgba(18, 27, 19, 0.8)";
-        middler = "rgba(15, 25, 39, 0.8)";
-        right   = "rgba(15, 25, 39, 0.8)";
+        left    = "${color2}";
+        middlel = "${color2}";
+        middler = "${color1}";
+        right   = "${color1}";
       }
       {
         name    = "windowcount-window";
-        left    = "rgba(15, 25, 39, 0.8)";
-        middlel = "rgba(15, 25, 39, 0.8)";
-        middler = "rgba(18, 27, 19, 0.8)";
-        right   = "rgba(18, 27, 19, 0.8)";
+        left    = "${color1}";
+        middlel = "${color1}";
+        middler = "${color2}";
+        right   = "${color2}";
       }
       {
         name    = "window-end";
-        left    = "rgba(18, 27, 19, 0.8)";
+        left    = "${color2}";
         border  = null;
         middlel = nullColor "${borderCol}";
         middler = nullColor "${borderCol}";
@@ -119,28 +125,28 @@ let
       }
       {
         name    = "time-battery";
-        left    = "rgba(15, 25, 39, 0.8)";
-        middlel = "rgba(15, 25, 39, 0.8)";
-        middler = "rgba(18, 27, 19, 0.8)";
-        right   = "rgba(18, 27, 19, 0.8)";
+        left    = "${color1}";
+        middlel = "${color1}";
+        middler = "${color2}";
+        right   = "${color2}";
       }
       {
         name    = "battery-audio";
-        left    = "rgba(18, 27, 19, 0.8)";
-        middlel = "rgba(18, 27, 19, 0.8)";
-        middler = "rgba(15, 25, 39, 0.8)";
-        right   = "rgba(15, 25, 39, 0.8)";
+        left    = "${color2}";
+        middlel = "${color2}";
+        middler = "${color1}";
+        right   = "${color1}";
       }
       {
         name    = "audio-light";
-        left    = "rgba(15, 25, 39, 0.8)";
-        middlel = "rgba(15, 25, 39, 0.8)";
-        middler = "rgba(18, 27, 19, 0.8)";
-        right   = "rgba(18, 27, 19, 0.8)";
+        left    = "${color1}";
+        middlel = "${color1}";
+        middler = "${color2}";
+        right   = "${color2}";
       }
       {
         name    = "light-end";
-        left    = "rgba(18, 27, 19, 0.8)";
+        left    = "${color2}";
         border  = null;
         middlel = nullColor "${borderCol}";
         middler = nullColor "${borderCol}";
@@ -156,28 +162,28 @@ let
         left    = "transparent";
         middlel = nullColor "${borderCol}";
         middler = nullColor "${borderCol}";
-        right   = "rgba(18, 27, 19, 0.8)";
+        right   = "${color2}";
       }
       {
         name    = "temperature-cpu";
-        left    = "rgba(18, 27, 19, 0.8)";
-        middlel = "rgba(18, 27, 19, 0.8)";
-        middler = "rgba(15, 25, 39, 0.8)";
-        right   = "rgba(15, 25, 39, 0.8)";
+        left    = "${color2}";
+        middlel = "${color2}";
+        middler = "${color1}";
+        right   = "${color1}";
       }
       {
         name    = "cpu-memory";
-        left    = "rgba(15, 25, 39, 0.8)";
-        middlel = "rgba(15, 25, 39, 0.8)";
-        middler = "rgba(18, 27, 19, 0.8)";
-        right   = "rgba(18, 27, 19, 0.8)";
+        left    = "${color1}";
+        middlel = "${color1}";
+        middler = "${color2}";
+        right   = "${color2}";
       }
       {
         name    = "memory-time";
-        left    = "rgba(18, 27, 19, 0.8)";
-        middlel = "rgba(18, 27, 19, 0.8)";
-        middler = "rgba(15, 25, 39, 0.8)";
-        right   = "rgba(15, 25, 39, 0.8)";
+        left    = "${color2}";
+        middlel = "${color2}";
+        middler = "${color1}";
+        right   = "${color1}";
       }
       {
         name    = "end-submap";
@@ -185,28 +191,28 @@ let
         left    = "transparent";
         middlel = nullColor "${borderCol}";
         middler = nullColor "${borderCol}";
-        right   = "rgba(18, 27, 19, 0.8)";
+        right   = "${color2}";
       }
       {
         name    = "submap-language";
-        left    = "rgba(18, 27, 19, 0.8)";
-        middlel = "rgba(18, 27, 19, 0.8)";
-        middler = "rgba(15, 25, 39, 0.8)";
-        right   = "rgba(15, 25, 39, 0.8)";
+        left    = "${color2}";
+        middlel = "${color2}";
+        middler = "${color1}";
+        right   = "${color1}";
       }
       {
         name    = "language-bluetooth";
-        left    = "rgba(15, 25, 39, 0.8)";
-        middlel = "rgba(15, 25, 39, 0.8)";
-        middler = "rgba(18, 27, 19, 0.8)";
-        right   = "rgba(18, 27, 19, 0.8)";
+        left    = "${color1}";
+        middlel = "${color1}";
+        middler = "${color2}";
+        right   = "${color2}";
       }
       {
         name    = "bluetooth-network";
-        left    = "rgba(18, 27, 19, 0.8)";
-        middlel = "rgba(18, 27, 19, 0.8)";
-        middler = "rgba(15, 25, 39, 0.8)";
-        right   = "rgba(15, 25, 39, 0.8)";
+        left    = "${color2}";
+        middlel = "${color2}";
+        middler = "${color1}";
+        right   = "${color1}";
       }
     ]
   );
@@ -287,6 +293,7 @@ in
       #bluetooth,
       #network
       {
+        opacity: ${opacity};
         '' + (
         if borderCol == null || borderCol == "null"
         then ""
@@ -301,7 +308,7 @@ in
       #pulseaudio,
       #language,
       #network {
-        background: rgba(15, 25, 39, 0.8);
+        background: ${color1};
       }
 
       #workspaces,
@@ -312,7 +319,7 @@ in
       #backlight,
       #submap,
       #bluetooth {
-        background: rgba(18, 27, 19, 0.8);
+        background: ${color2};
       }
 
       #clock {
