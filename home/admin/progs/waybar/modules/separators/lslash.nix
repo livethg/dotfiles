@@ -7,7 +7,7 @@
     settings = {
       main = {
         "custom/lslash" = {
-          format   = "     ";
+          format   = "    ";
           interval = "once";
         };
       };

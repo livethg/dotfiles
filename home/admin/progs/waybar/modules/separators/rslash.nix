@@ -7,7 +7,7 @@
     settings = {
       main = {
         "custom/rslash" = {
-          format   = "     ";
+          format   = "    ";
           interval = "once";
         };
       };

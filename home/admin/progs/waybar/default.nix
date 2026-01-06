@@ -6,7 +6,7 @@
 
 let
   inherit (pkgs) callPackage lib;
-  borderCol = "null";
+  borderCol = "#808080";
   color1    = colors.base02;
   color2    = colors.base00;
   opacity   = "0.8";
@@ -31,7 +31,7 @@ let
     text = ''
       #custom-lslash-${name} {
         background: linear-gradient(
-          110deg,
+          108deg,
           ${left}      0%,
           ${left}     45%,
           ${middlel}  45%,
@@ -45,7 +45,7 @@ let
     '' + (
       if border == null || border == "null"
       then ""
-      else "border-bottom: 2px solid ${border};"
+      else "border-bottom: 1px solid ${border};"
     ) + "}";
 
     moduleName = "custom/lslash-${name}";
@@ -62,7 +62,7 @@ let
     text = ''
       #custom-rslash-${name} {
         background: linear-gradient(
-          70deg,
+          72deg,
           ${left}      0%,
           ${left}     45%,
           ${middlel}  45%,
@@ -76,7 +76,7 @@ let
     '' + (
       if border == null || border == "null"
       then ""
-      else "border-bottom: 2px solid ${border};"
+      else "border-bottom: 1px solid ${border};"
     ) + "}";
 
     moduleName = "custom/rslash-${name}";
@@ -120,7 +120,7 @@ let
         left    = "${color2}";
         border  = null;
         middlel = nullColor "${borderCol}";
-        middler = nullColor "${borderCol}";
+        middler = "transparent";
         right   = "transparent";
       }
       {
@@ -149,7 +149,7 @@ let
         left    = "${color2}";
         border  = null;
         middlel = nullColor "${borderCol}";
-        middler = nullColor "${borderCol}";
+        middler = "transparent";
         right   = "transparent";
       }
     ]
@@ -160,7 +160,7 @@ let
         name    = "end-temperature";
         border  = null;
         left    = "transparent";
-        middlel = nullColor "${borderCol}";
+        middlel = "transparent";
         middler = nullColor "${borderCol}";
         right   = "${color2}";
       }
@@ -189,7 +189,7 @@ let
         name    = "end-submap";
         border  = null;
         left    = "transparent";
-        middlel = nullColor "${borderCol}";
+        middlel = "transparent";
         middler = nullColor "${borderCol}";
         right   = "${color2}";
       }
@@ -228,7 +228,7 @@ in
       /* Fonts and foregrounds */
       * {
         font-family: DejaVu Sans Condensed;
-        font-size:   11px;
+        font-size:   10px;
         font-weight: normal;
         color:       white;
       }
@@ -297,7 +297,7 @@ in
         '' + (
         if borderCol == null || borderCol == "null"
         then ""
-        else "border-bottom:    2px solid ${borderCol};"
+        else "border-bottom: 1px solid ${borderCol};"
         ) + ''
       }
 

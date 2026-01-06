@@ -26,6 +26,7 @@ rec {
         "nodim,           title:Albert"
         "dimaround off,   title:Albert"
         "bordersize 0,    title:Albert"
+        "rounding 0,      title:Albert"
 
         # Bug fixes
         "suppressevent maximize, class:.*"

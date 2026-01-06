@@ -5,6 +5,8 @@
 }:
 
 {
+  home.file.".config/albert/config".text = import ./config.nix {};
+
   home.packages = with pkgs; [
     (
       let
