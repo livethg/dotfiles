@@ -6,6 +6,8 @@
 {
   imports = [
     ./albert
+    ./clipse
+    ./dunst
     ./fzf
     ./gpg
     ./hyprshot

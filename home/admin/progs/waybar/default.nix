@@ -6,7 +6,7 @@
 
 let
   inherit (pkgs) callPackage lib;
-  borderCol = "#808080";
+  borderCol = "#C0C0C0";
   color1    = colors.base02;
   color2    = colors.base00;
   opacity   = "0.8";

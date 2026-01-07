@@ -4,163 +4,163 @@
 
 ''
 [General]
-frontend=widgetsboxmodel
-memoryDecay=0.7
-telemetry=false
+frontend    = widgetsboxmodel
+memoryDecay = 0.7
+telemetry   = false
 
 [application]
-enabled=true
+enabled = true
 
 [applications]
-enabled=true
-fuzzy=true
+enabled = true
+fuzzy   = true
 
 [bluetooth]
-enabled=true
-fuzzy=true
+enabled = true
+fuzzy   = true
 
 [caffeine]
-enabled=false
+enabled = false
 
 [calculator_qalculate]
-enabled=true
-functions_in_global_query=true
-units_in_global_query=true
+enabled                   = true
+functions_in_global_query = true
+units_in_global_query     = true
 
 [clipboard]
-enabled=false
-persistent=true
+enabled    = false
+persistent = true
 
 [datetime]
-enabled=true
-trigger="dt "
+enabled = true
+trigger = "dt "
 
 [debug]
-enabled=false
+enabled = false
 
 [docs]
-enabled=false
-fuzzy=true
+enabled = false
+fuzzy   = true
 
 [files]
-enabled=true
-fs_browsers_match_case_sensitive=false
-fuzzy=true
-index_file_path=true
-paths=@Invalid()
+enabled                          = true
+fs_browsers_match_case_sensitive = false
+fuzzy                            = true
+index_file_path                  = true
+paths                            = @Invalid()
 
 [github]
-enabled=true
+enabled = true
 
 [hash]
-enabled=true
+enabled = true
 
 [mediaremote]
-enabled=true
-trigger="media "
+enabled = true
+trigger = "media "
 
 [path]
-enabled=true
+enabled = true
 
 [python]
-enabled=true
+enabled = true
 
 [python.arch_wiki]
-enabled=true
+enabled = true
 
 [python.docker]
-enabled=true
-trigger="docker "
+enabled = true
+trigger = "docker "
 
 [python.duckduckgo]
-enabled=false
+enabled = false
 
 [python.emoji]
-enabled=true
-fuzzy=true
+enabled = true
+fuzzy   = true
 
 [python.goldendict]
-enabled=false
+enabled = false
 
 [python.kill]
-enabled=true
+enabled = true
 
 [python.python_eval]
-enabled=true
+enabled = true
 
 [python.tex_to_unicode]
-enabled=true
+enabled = true
 
 [python.translators]
-enabled=true
-translator=yandex
+enabled    = true
+translator = yandex
 
 [python.unit_converter]
-enabled=true
+enabled = true
 
 [python.virtualbox]
-enabled=false
+enabled = false
 
 [python.x_window_switcher]
-enabled=false
+enabled = false
 
 [snippets]
-enabled=true
+enabled = true
 
 [ssh]
-enabled=true
+enabled = true
 
 [system]
-command_lock=sleep 0.1 && hyprlock
-command_poweroff=systemctl poweroff
-command_reboot=systemctl reboot
-enabled=true
-trigger="sys "
+command_lock     = sleep 0.1 && hyprlock
+command_poweroff = systemctl poweroff
+command_reboot   = systemctl reboot
+enabled          = true
+trigger          = "sys "
 
 [timer]
-enabled=true
+enabled = true
 
 [timezones]
-enabled=false
+enabled = false
 
 [triggers]
-fuzzy=true
-trigger="trig "
+fuzzy   = true
+trigger = "trig "
 
 [urlhandler]
-enabled=true
-trigger="url "
+enabled = true
+trigger = "url "
 
 [vpn]
-enabled=true
-fuzzy=true
+enabled = true
+fuzzy   = true
 
 [websearch]
-enabled=true
-trigger="web "
+enabled = true
+trigger = "web "
 
 [widgetsboxmodel]
-alwaysOnTop=true
-clearOnHide=true
-clientShadow=false
-displayScrollbar=false
-followCursor=true
-hideOnFocusLoss=true
-historySearch=true
-itemCount=6
-lightTheme=Default
-quitOnClose=false
-showCentered=true
-systemShadow=true
+alwaysOnTop     = true
+clearOnHide     = true
+clientShadow    = false
+displayScrollbar= false
+followCursor    = true
+hideOnFocusLoss = true
+historySearch   = true
+itemCount       = 6
+lightTheme      = Default
+quitOnClose     = false
+showCentered    = true
+systemShadow    = true
 
 [widgetsboxmodel-ng]
-alwaysOnTop=true
-clearOnHide=true
-displayScrollbar=false
-followCursor=true
-hideOnFocusLoss=true
-historySearch=true
-itemCount=5
-lightTheme=Nord Dark
-showCentered=true
+alwaysOnTop      = true
+clearOnHide      = true
+displayScrollbar = false
+followCursor     = true
+hideOnFocusLoss  = true
+historySearch    = true
+itemCount        = 5
+lightTheme       = Nord Dark
+showCentered     = true
 ''
