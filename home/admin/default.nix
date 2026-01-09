@@ -11,7 +11,6 @@ rec {
     ./gtk
     ./packages
     ./progs
-    ./shell
   ] ++ (
     lib.lists.optional wayland.windowManager.hyprland.enable ./hyprland
   );

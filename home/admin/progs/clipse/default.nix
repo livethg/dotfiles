@@ -10,7 +10,7 @@
       useCustomTheme = true;
 
       TitleFore = base0D;
-      TitleBack = base01;
+      TitleBack = "#24283b" ;
       TitleInfo = base03;
 
       NormalTitle   = base13;

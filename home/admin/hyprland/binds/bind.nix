@@ -11,7 +11,7 @@ in
     settings = {
       bind = [
         # Popup windows
-        "$opt3, V,     exec, bash -c \"${startClipse}\""
+        "$opt3, V,     exec, $SHELL -c \"${startClipse}\""
         "$opt3, space, exec, $launcher"
 
         # Starts apps

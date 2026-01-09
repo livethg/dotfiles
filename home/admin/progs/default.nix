@@ -14,5 +14,6 @@
     ./kitty
     ./neovim
     ./waybar
+    ./zsh
   ];
 }

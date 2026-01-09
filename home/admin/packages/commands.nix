@@ -17,7 +17,8 @@
     ncdu
     procs
     translate-shell
-    wireplumber
     viu
+    wireplumber
+    zsh
   ];
 }

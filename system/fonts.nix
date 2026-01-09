@@ -13,6 +13,7 @@
     ibm-plex
     jetbrains-mono
     liberation_ttf
+    monoid
     nerd-fonts.blex-mono
     nerd-fonts.dejavu-sans-mono 
     nerd-fonts.inconsolata
