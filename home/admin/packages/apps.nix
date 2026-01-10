@@ -15,7 +15,6 @@
     graphite-gtk-theme
     home-manager
     hyprshot
-    kdePackages.qt6ct
     nwg-look
     nuclear
     oh-my-zsh

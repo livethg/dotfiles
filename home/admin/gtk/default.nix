@@ -36,6 +36,11 @@
     colorScheme = "dark";
   };
 
+  qt = {
+    enable             = true;
+    platformTheme.name = "gtk2";
+  };
+
   home.pointerCursor = {
     gtk.enable = true;
     name       = "oreo_white_cursors";
