@@ -1,8 +1,0 @@
-# Options for fuzzy finder
-{
-  ...
-}:
-
-{
-
-}

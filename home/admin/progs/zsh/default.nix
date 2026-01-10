@@ -18,6 +18,30 @@ in
     sessionVariables = {
       EDITOR    = "nvim";
       SHELL     = "zsh";
+
+      FZF_DEFAULT_OPTS = ''
+        --style full \
+        --preview='bat --style=\"changes,numbers\" --color=\"always\" --decorations=\"always\" {}' \
+        --bind 'focus:transform-preview-label:[[ -n {} ]] && printf \"File: %s\" {}'               \
+        --bind \"result:transform-list-label:                       \
+        if [[ -z \$FZF_QUERY ]]; then                               \
+          echo \\\" \$FZF_MATCH_COUNT items \\\";                   \
+        else                                                        \
+          echo \\\" \$FZF_MATCH_COUNT matches for \$FZF_QUERY \\\"; \
+        fi                                 \
+        \"                                 \
+        --color \"bg:#24283b\"             \
+        --color \"border:#aaaaaa\"         \
+        --color \"header-border:#6699cc\"  \
+        --color \"header-label:#99ccff\"   \
+        --color \"input-border:#996666\"   \
+        --color \"input-label:#ffcccc\"    \
+        --color \"label:#cccccc\"          \
+        --color \"list-border:#669966\"    \
+        --color \"list-label:#99cc99\"     \
+        --color \"preview-border:#9999cc\" \
+        --color \"preview-label:#ccccff\"
+      '';
     };
 
     oh-my-zsh = {
@@ -42,12 +66,15 @@ in
     };
 
     shellAliases = {
-      # Is expanded anywhere on the line, not just at the beggining
-      nrt  = "sudo nixos-rebuild test --flake .#admin";
-      nrs  = "sudo nixos-rebuild switch --flake .#admin";
-      nrda = "sudo nixos-rebuild dry-activate --flake .#admin";
+      # Is expanded anywhere on the line, not just at the beginning
+      nrt  = "sudo nixos-rebuild test         --flake /home/admin/nixos#admin";
+      nrtr = "sudo nixos-rebuild test         --flake /home/admin/nixos#admin --rollback";
+      nrs  = "sudo nixos-rebuild switch       --flake /home/admin/nixos#admin";
+      nrsr = "sudo nixos-rebuild switch       --flake /home/admin/nixos#admin --rollback";
+      nrda = "sudo nixos-rebuild dry-activate --flake /home/admin/nixos#admin";
       nrlg = "nixos-rebuild list-generations";
       nr   = "sudo nixos-rebuild";
+      v    = "nvim";
       zs   = ''
       TARGD="$(realpath `fzf`)"
       if [ -d "$TARGD" ]; then
@@ -55,7 +82,8 @@ in
       else
         z "$(dirname $TARGD)";
       fi
-      unset TARGD;'';
+      unset TARGD;
+      '';
     };
 
     dirHashes = {

@@ -9,6 +9,7 @@
       exec-once = [
         # Utils
         "albert"
+        "waybar"
 
         # Hyprland cursor funnies
         "hyprctl setcursor 'oreo_white_cursors' 18"
