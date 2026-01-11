@@ -9,6 +9,7 @@
     ./bat
     ./clipse
     ./dunst
+    ./git
     ./gpg
     ./hyprshot
     ./kitty

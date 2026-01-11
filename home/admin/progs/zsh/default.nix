@@ -5,8 +5,7 @@
 
 let
   lib = pkgs.lib;
-in
-{
+in {
   programs.zsh = {
     enable = true;
 
@@ -74,6 +73,8 @@ in
       nrda = "sudo nixos-rebuild dry-activate --flake /home/admin/nixos#admin";
       nrlg = "nixos-rebuild list-generations";
       nr   = "sudo nixos-rebuild";
+
+      gdk  = "git difftool --no-symlinks --dir-diff";
       v    = "nvim";
       zs   = ''
       TARGD="$(realpath `fzf`)"

@@ -1,4 +1,3 @@
-# Configs for neovim
 {
   ...
 }:
@@ -10,6 +9,12 @@
 
     viAlias  = true;
     vimAlias = true;
+
+    coc = {
+      enable = true;
+    };
+
+    extraLuaConfig = builtins.readFile ./init.lua;
   };
 }
 
