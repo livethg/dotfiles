@@ -13,13 +13,9 @@
     ];
 
     signing = {
+      # The rest of it (i.e. which key to use)
+      # is defined in the private part
       format        = "ssh";
-
-      # TODO: Change this to create a custom program that
-      # selects a key instead of this magic number
-      #
-      # See: gpg.ssh.defaultKeyCommand
-      key           = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqkKbFjGIO6XeN47MkVB64qJ6kIv6L1OhsfduCYNZKd";
       signByDefault = true;
     };
 
