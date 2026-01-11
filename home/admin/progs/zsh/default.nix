@@ -74,6 +74,7 @@ in {
       nrlg = "nixos-rebuild list-generations";
       nr   = "sudo nixos-rebuild";
 
+      b    = "bat";
       gdk  = "git difftool --no-symlinks --dir-diff";
       v    = "nvim";
       zs   = ''

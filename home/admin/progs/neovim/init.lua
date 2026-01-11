@@ -43,11 +43,6 @@ vim.keymap.set('', '<C-down>',  '<C-W>j', { remap = true; })
 vim.keymap.set('', '<C-left>',  '<C-W>h', { remap = true; })
 vim.keymap.set('', '<C-right>', '<C-W>l', { remap = true; })
 
-vim.keymap.set('', '<S-up>',    'K', { remap = true; })
-vim.keymap.set('', '<S-down>',  'J', { remap = true; })
-vim.keymap.set('', '<S-left>',  'H', { remap = true; })
-vim.keymap.set('', '<S-right>', 'L', { remap = true; })
-
 vim.keymap.set('', '<S-A-up>',    '<C-W>K', { remap = true; })
 vim.keymap.set('', '<S-A-down>',  '<C-W>J', { remap = true; })
 vim.keymap.set('', '<S-A-left>',  '<C-W>H', { remap = true; })
