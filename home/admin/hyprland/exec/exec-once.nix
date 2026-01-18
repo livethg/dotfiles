@@ -12,7 +12,7 @@
         "waybar"
 
         # Hyprland cursor funnies
-        "hyprctl setcursor 'oreo_white_cursors' 18"
+        "hyprctl setcursor 'oreo_white_cursors' 14"
 
         # Start on browser window
         "hyprctl dispatch workspace 5"

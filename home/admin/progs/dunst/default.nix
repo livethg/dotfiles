@@ -30,7 +30,7 @@
 
     sort = urgency_descending
 
-    font   = DejaVu Sans Condensed 8
+    font   = DejaVu Sans Condensed 11
     format = "<b>%a</b>\n───\n<i>%s</i>"
 
     corner_radius = 2
@@ -39,13 +39,13 @@
     background  = "${colors.base00}CC"
     foreground  = "#222DCC"
     frame_color = "#222DCC"
-    timeout     = 20
+    timeout     = 10
 
     [urgency_normal]
     background  = "${colors.base00}CC"
     foreground  = "#C0C0C0"
     frame_color = "#C0C0C0"
-    timeout     = 30
+    timeout     = 20
 
     [urgency_critical]
     background  = "${colors.base00}CC"

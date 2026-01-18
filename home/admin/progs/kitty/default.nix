@@ -10,7 +10,7 @@
     themeFile = "tokyo_night_storm";
 
     font = {
-      size = 8;
+      size = 11;
       name = "Liberation Mono";
     };
 

@@ -30,7 +30,7 @@
     cursorTheme = {
       name    = "oreo_white_cursors";
       package = pkgs.oreo-cursors-plus;
-      size    = 18;
+      size    = 14;
     };
 
     colorScheme = "dark";
@@ -45,6 +45,6 @@
     gtk.enable = true;
     name       = "oreo_white_cursors";
     package    = pkgs.oreo-cursors-plus;
-    size       = 18;
+    size       = 14;
   };
 }

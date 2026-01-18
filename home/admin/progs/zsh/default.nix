@@ -76,6 +76,7 @@ in {
 
       b    = "bat";
       gdk  = "git difftool --no-symlinks --dir-diff";
+      gdsk = "git difftoll --no-symlinks --dir-diff --staged";
       v    = "nvim";
       zs   = ''
       TARGD="$(realpath `fzf`)"

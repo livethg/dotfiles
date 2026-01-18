@@ -228,7 +228,7 @@ in
       /* Fonts and foregrounds */
       * {
         font-family: DejaVu Sans Condensed;
-        font-size:   10px;
+        font-size:   13px;
         font-weight: normal;
         color:       white;
       }
@@ -252,7 +252,7 @@ in
 
       /* Spacing */
       * {
-        min-height: 0; /* Do not modify, fixes a bug with height */
+        min-height: 20px; /* Do not modify, fixes a bug with height */
       }
 
       #custom-privacydots {

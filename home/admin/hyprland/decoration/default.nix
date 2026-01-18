@@ -14,7 +14,7 @@
         dim_inactive = true;
         dim_strength = 0.25;
 
-        rounding       = 17;
+        rounding       = 25;
         rounding_power = 1;
       };
     };

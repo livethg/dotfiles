@@ -1,8 +1,3 @@
-# Nixos configuration, includes basic properties
-# such as networking services and global packages.
-#
-# For specific (and longer) system-wide configuration,
-# use a new file in the ./system directory.
 {
   hyprland,
   lib,

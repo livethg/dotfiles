@@ -24,6 +24,7 @@ rec {
     ./packages
     ./plugins
     ./rules
+    ./scaling
     ./scripts
     ./submaps
   ];

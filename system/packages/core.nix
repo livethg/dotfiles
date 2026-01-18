@@ -17,6 +17,7 @@
     docker
     eza
     fastfetch
+    fd
     file
     fzf
     gawk
