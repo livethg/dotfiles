@@ -1,8 +1,10 @@
-------------------------
+-----------------------
 --  Global arguments  --
 ------------------------
+vim.opt.number         = true
 vim.opt.relativenumber = true
 vim.opt.hlsearch       = true
+vim.opt.cursorline     = true
 
 vim.opt.list      = true
 vim.opt.listchars = {
@@ -108,8 +110,342 @@ keyset('x', '<leader>f',  '<Plug>(coc-format-selected)',  { silent = true })
 keyset('n', '<leader>f',  '<Plug>(coc-format-selected)',  { silent = true })
 keyset('',  'gz',         '<Cmd>CocCommand explorer<CR>', { silent = true })
 
+----------------
+--  Gitsigns  --
+----------------
+require('gitsigns').setup {
+    signs = {
+        add          = { text = '┃' },
+        change       = { text = '┃' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
+        changedelete = { text = '~' },
+        untracked    = { text = '┆' },
+    },
+    signs_staged = {
+        add          = { text = '┃' },
+        change       = { text = '┃' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
+        changedelete = { text = '~' },
+        untracked    = { text = '┆' },
+    },
+    signs_staged_enable = true,
+    signcolumn   = true,  -- Toggle with `:Gitsigns toggle_signs`
+    numhl        = false, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl       = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    watch_gitdir = {
+        follow_files = true
+    },
+    auto_attach             = true,
+    attach_to_untracked     = false,
+    current_line_blame      = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+        virt_text           = true,
+        virt_text_pos       = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        delay               = 1000,
+        ignore_whitespace   = false,
+        virt_text_priority  = 100,
+        use_focus           = true,
+    },
+    current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+
+    sign_priority    = 6,
+    update_debounce  = 100,
+    status_formatter = nil,   -- Use default
+    max_file_length  = 40000, -- Disable if file is longer than this (in lines)
+    preview_config   = {
+        -- Options passed to nvim_open_win
+        style    = 'minimal',
+        relative = 'cursor',
+        row      = 0,
+        col      = 1
+    },
+    on_attach = function(bufnr)
+        local gitsigns = require('gitsigns')
+
+        local function map(mode, l, r, opts)
+            opts        = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+        end
+
+        -- Navigation
+        map('n', ']c', function()
+            if vim.wo.diff then
+                vim.cmd.normal({']c', bang = true})
+            else
+                gitsigns.nav_hunk('next')
+            end
+        end)
+
+        map('n', '[c', function()
+            if vim.wo.diff then
+                vim.cmd.normal({'[c', bang = true})
+            else
+                gitsigns.nav_hunk('prev')
+            end
+        end)
+
+        -- Actions
+        map('n', '<leader>hs', gitsigns.stage_hunk)
+        map('n', '<leader>hr', gitsigns.reset_hunk)
+
+        map('v', '<leader>hs', function()
+            gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+        end)
+
+        map('v', '<leader>hr', function()
+            gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+        end)
+
+        map('n', '<leader>hS', gitsigns.stage_buffer)
+        map('n', '<leader>hR', gitsigns.reset_buffer)
+        map('n', '<leader>hp', gitsigns.preview_hunk)
+        map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+
+        map('n', '<leader>hb', function()
+            gitsigns.blame()
+        end)
+
+        map('n', '<leader>hd', gitsigns.diffthis)
+
+        map('n', '<leader>hD', function()
+            gitsigns.diffthis('~')
+        end)
+
+        map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+        map('n', '<leader>hq', gitsigns.setqflist)
+
+        -- Toggles
+        map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+        map('n', '<leader>tw', gitsigns.toggle_word_diff)
+
+        -- Text object
+        map({'o', 'x'}, 'ih', gitsigns.select_hunk)
+    end
+}
+
+-------------
+--  Marks  --
+-------------
+require'marks'.setup {
+    default_mappings   = true,
+    builtin_marks      = { ".", "<", ">", "^" },
+    cyclic             = true,
+    force_write_shada  = false,
+    refresh_interval   = 250,
+    sign_priority      = {
+        lower    = 10,
+        upper    = 15,
+        builtin  = 8,
+        bookmark = 20
+    },
+    excluded_filetypes = {},
+    excluded_buftypes  = {},
+    bookmark_0 = {
+        sign      = "⚑",
+        virt_text = "hello world",
+        annotate  = false,
+    },
+    mappings = {}
+}
+
+-------------
+--  Tabby  --
+-------------
+local theme = {
+    fill        = 'TabLineFill',
+    head        = 'TabLine',
+    current_tab = 'TabLineSel',
+    tab         = 'TabLine',
+    win         = 'TabLine',
+    tail        = 'TabLine',
+}
+require('tabby').setup({
+    line = function(line)
+        return {
+            {
+                { '  ', hl = theme.head },
+                line.sep('', theme.head, theme.fill),
+            },
+            line.tabs().foreach(function(tab)
+                local hl = tab.is_current() and theme.current_tab or theme.tab
+                return {
+                    line.sep('', hl, theme.fill),
+                    tab.is_current() and '' or '',
+                    tab.name(),
+                    tab.number(),
+                    line.sep('', hl, theme.fill),
+                    hl     = hl,
+                    margin = ' '
+                }
+            end),
+            line.spacer(),
+            line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+                return {
+                    line.sep('', theme.win, theme.fill),
+                    win.is_current() and '' or '',
+                    win.buf_name(),
+                    line.sep('', theme.win, theme.fill),
+                    hl     = theme.win,
+                    margin = ' '
+                }
+            end),
+            {
+                line.sep('', theme.tail, theme.fill),
+                { '  ', hl = theme.tail },
+            },
+            hl = theme.fill,
+        }
+    end,
+})
+
+------------------
+--  Illuminate  --
+------------------
+-- default configuration
+require('illuminate').configure {
+    -- providers: provider used to get references in the buffer, ordered by priority
+    providers = {
+        'lsp',
+        'treesitter',
+        'regex',
+    },
+    delay = 100,
+    filetype_overrides = {},
+    filetypes_denylist = {
+        'dirbuf',
+        'dirvish',
+        'fugitive',
+    },
+    filetypes_allowlist              = {},
+    modes_denylist                   = {},
+    modes_allowlist                  = {},
+    providers_regex_syntax_denylist  = {},
+    providers_regex_syntax_allowlist = {},
+    under_cursor                     = true,
+    large_file_cutoff                = 10000,
+    large_file_overrides             = nil,
+    min_count_to_highlight           = 1,
+    should_enable                    = function(bufnr) return true end,
+    case_insensitive_regex           = false,
+    disable_keymaps                  = false,
+}
+
+---------------
+--  Lualine  --
+---------------
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme         = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar     = {},
+    },
+
+    ignore_focus         = {},
+    always_divide_middle = true,
+    always_show_tabline  = true,
+    globalstatus         = false,
+
+    refresh = {
+      statusline   = 1000,
+      tabline      = 1000,
+      winbar       = 1000,
+      refresh_time = 16, -- ~60fps
+      events       = {
+        'WinEnter',
+        'BufEnter',
+        'BufWritePost',
+        'SessionLoadPost',
+        'FileChangedShellPost',
+        'VimResized',
+        'Filetype',
+        'CursorMoved',
+        'CursorMovedI',
+        'ModeChanged',
+      },
+    }
+  },
+  sections = {
+    lualine_a = {'mode', 'lsp_status'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+
 ------------------------
 --  Other extensions  --
 ------------------------
+-- Colorscheme
 vim.cmd[[colorscheme tokyonight-storm]]
 
+-- Trouble
+require('trouble').setup { cmd  = 'Trouble' }
+vim.keymap.set('n', '<leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
+
+-- Diffview
+vim.keymap.set('n', '<leader>d', '<Cmd>DiffviewOpen<CR>')
+
+-- CCC
+require('ccc').setup {
+    highlighter = {
+        auto_enable = true,
+        lsp = true,
+    },
+}
+
+-- Range hightlight
+require("range-highlight").setup({ 
+    highlight = {
+        group = "Visual",
+        priority = 10,
+        -- if you want to highlight empty line, set it to true
+        to_eol = false,
+    },
+    -- disable range highlight, if the cmd is matched here. Value here does not accept shorthand
+    excluded = { cmd = { 'substitute' } },
+    debounce = {
+        -- how long to debounce, set to 0 to disable
+        wait = 100,
+    },
+})
+
+-- Surround nvim
+require("nvim-surround").setup()
+
+-- EasyAlign
+vim.keymap.set('x', 'ga', '<Plug>(EasyAlign)')
+vim.keymap.set('n', 'ga', '<Plug>(EasyAlign)')
+
+-- Undo glow
+require('highlight-undo').setup {}
+
+-- Leap
+require('leap').opts.preview = function (ch0, ch1, ch2)
+    return not (
+        ch1:match('%s')
+        or (ch0:match('%a') and ch1:match('%a') and ch2:match('%a'))
+    )
+end
+vim.keymap.set({'n', 'x', 'o'}, '-', '<Plug>(leap)')

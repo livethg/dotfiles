@@ -14,6 +14,7 @@
     withNodeJs = true;
 
     plugins = with pkgs.vimPlugins; [
+      ccc-nvim
       coc-cmake
       coc-clangd
       coc-css
@@ -21,7 +22,6 @@
       coc-docker
       coc-explorer
       coc-fzf
-      coc-git
       coc-html
       coc-highlight
       coc-java
@@ -41,10 +41,27 @@
       coc-toml
       coc-vimlsp
       coc-yaml
+      cord-nvim
       diffview-nvim
+      gitsigns-nvim
+      highlight-undo-nvim
+      leap-nvim
+      lualine-nvim
+      marks-nvim
+      nvim-gdb
       nvim-treesitter
+      nvim-web-devicons
+      range-highlight-nvim
+      nvim-surround
+      tabby-nvim
       telescope-coc-nvim
       tokyonight-nvim
+      trouble-nvim
+      vim-easy-align
+      vim-fugitive
+      vim-illuminate
+      vim-repeat
+      vim-snippets
     ] ++ (
       with pkgs; [
         nixd

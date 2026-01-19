@@ -52,6 +52,7 @@ in {
         "emoji"
         "eza"
         "fancy-ctrl-z"
+        "gh"
         "git"
         "procs"
         "rust"
