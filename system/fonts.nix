@@ -7,6 +7,7 @@
 {
   fonts.packages = with pkgs; [
     cantarell-fonts
+    carlito
     fira
     fira-code
     fira-code-symbols

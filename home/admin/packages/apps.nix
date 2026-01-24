@@ -21,6 +21,7 @@
     qtcreator
     texstudio
     thunderbird
+    typst
     vesktop
     zeal
   ];

@@ -57,6 +57,7 @@
       telescope-coc-nvim
       tokyonight-nvim
       trouble-nvim
+      typst-vim
       vim-easy-align
       vim-fugitive
       vim-illuminate
