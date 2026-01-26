@@ -7,7 +7,7 @@
     settings = {
       main = {
         clock    = {
-          format         = "{0:%a}  {0:%H󰇙%M}  {0:%m}·{0:%d}";
+          format         = "{0:%a}  {0:%H󰇙%M}  {0:%d}·{0:%m}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar       = {
             mode         = "year";
