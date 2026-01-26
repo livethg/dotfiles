@@ -63,6 +63,7 @@
       vim-illuminate
       vim-repeat
       vim-snippets
+      zoxide-vim
     ] ++ (
       with pkgs; [
         nixd
