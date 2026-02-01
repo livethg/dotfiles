@@ -13,6 +13,7 @@
     python314
     rustup
     texliveGUST
+    typescript
     valgrind
     zulu
   ];
