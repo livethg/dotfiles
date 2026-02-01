@@ -56,7 +56,7 @@ vim.keymap.set('', '<S-A-right>', '<C-W>L', { remap = true; })
 -- https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.lua
 vim.opt.backup      = false
 vim.opt.writebackup = false
-vim.opt.updatetime  = 300
+vim.opt.updatetime  = 1000
 
 vim.opt.signcolumn = 'yes'
 
