@@ -45,7 +45,7 @@
       diffview-nvim
       gitsigns-nvim
       highlight-undo-nvim
-      leap-nvim
+      hop-nvim
       lualine-nvim
       marks-nvim
       nvim-gdb

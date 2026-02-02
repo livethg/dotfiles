@@ -441,11 +441,20 @@ vim.keymap.set('n', 'ga', '<Plug>(EasyAlign)')
 -- Undo glow
 require('highlight-undo').setup {}
 
--- Leap
-require('leap').opts.preview = function (ch0, ch1, ch2)
-    return not (
-        ch1:match('%s')
-        or (ch0:match('%a') and ch1:match('%a') and ch2:match('%a'))
-    )
-end
-vim.keymap.set({'n', 'x', 'o'}, '-', '<Plug>(leap)')
+-- Hop
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+hop.setup()
+vim.keymap.set('', 'f', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+end, {remap=true})
+vim.keymap.set('', 'F', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+end, {remap=true})
+vim.keymap.set('', 't', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+end, {remap=true})
+vim.keymap.set('', 'T', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+end, {remap=true})
+vim.keymap.set({ 'n', 'x', 'o'}, '-', '<Cmd>HopWord<CR>')
