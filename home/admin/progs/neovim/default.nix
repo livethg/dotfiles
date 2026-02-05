@@ -58,6 +58,7 @@
       tokyonight-nvim
       trouble-nvim
       typst-vim
+      undotree
       vim-easy-align
       vim-fugitive
       vim-illuminate
